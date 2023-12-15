@@ -15,13 +15,13 @@ const Creators = () => {
             <div>
             <Image src={creator.img} alt={creator.name} width={80} height={100}/>
             </div>
-            <div className='grid ml-2'>
+            <div className='grid ml-2 w-full'>
                 <p className='font-bold text-[1.2rem]'>{creator.name}</p>
                 <p className='text-[.8rem] lg:mt-[-1rem]'>{creator.handle}</p>
                 <button type='button' className='bg-purple-900 p-2 rounded-md text-white text-[.7rem] lg:text-[1rem] hover:bg-purple-950 hover:shadow-lg hover:shadow-purple-500'>View Collections</button>
             </div>
             </div>
-            <div className='flex ml-6 '>
+            <div className='flex justify-between w-2/5'>
                 <Image src={creator.nft} alt={creator.name} width={120} height={0} className='rounded-md h-24 '/>
                 <Image src={creator.nft} alt={creator.name} width={80} height={0} className='hidden lg:block rounded-md ml-4 h-24'/>
             </div>
