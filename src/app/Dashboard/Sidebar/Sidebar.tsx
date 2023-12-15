@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft, LogOut } from 'lucide-react';
 
-const page = () => {
+const Sidebar = () => {
     const Pathname = usePathname()
     const [bar, barHandle] = useState<boolean>(true)
 
@@ -39,4 +39,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Sidebar

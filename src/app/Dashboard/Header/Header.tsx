@@ -3,7 +3,7 @@ import { Search } from 'lucide-react'
 import Image from 'next/image'
 import {useState} from 'react'
 
-const page = () => {
+const Header = () => {
     const [search, searchAct] = useState<boolean>(true)
 
   return (
@@ -21,4 +21,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Header

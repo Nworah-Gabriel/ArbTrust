@@ -29,7 +29,7 @@ export const Creator = [
         name: 'Great Adams',
         handle: '@greatadams',
         img: '/profile.webp',
-        nft: '/image.webp', 
+        nft: '/image.webp',
     },
     {
         name: 'Great Adams',
@@ -63,89 +63,134 @@ export const Market = [
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
     {
         name: 'Created by',
         handle: '@greatadams',
         img: '/profile.webp',
         nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
     },
 ]
