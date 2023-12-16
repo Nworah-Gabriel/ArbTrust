@@ -5,14 +5,14 @@ const page = () => {
   return (
     <div className='flex w-full justify-center'>
       <div className='lg:flex lg:w-full'>
-      <Image src={'/Logo.webp'} alt='Logo' width={100} height={50}  className='block lg:hidden mt-2 ml-6 ' />
+      <Image src={'/Logo2.webp'} alt='Logo' width={100} height={50}  className='block lg:hidden mt-2 ml-6 ' />
       <section className='overflow-hidden h-[100svh] hidden lg:block'>
         <Image src={'/image.webp'} alt='Image' width={1200} height={100} className='h-[100svh]' />
       </section>
 
       <section className='lg:grid w-full px-10 lg:px-36 '>
       <div className='flex text-center items-center mt-6 w-full'>
-      <Image src={'/Logo.webp'} alt='Logo' width={100} height={50}  className='hidden lg:block mt-[-5rem] ml-6' />
+      <Image src={'/Logo2.webp'} alt='Logo' width={100} height={50}  className='hidden lg:block mt-[-5rem] ml-6' />
         <div>
       <h1 className='font-bold text-[2rem] lg:text-[3rem] w-full opacity-80 '>Personal Details</h1>
       <p className='mb-10'>Enter the following information for further verification</p>

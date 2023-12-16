@@ -10,7 +10,7 @@ const page = () => {
 
       <section className='grid w-full px-10 justify-center lg:justify-normal'>
         <div>
-            <Image src={'/Logo.webp'} alt='Logo' width={100} height={50}  className='block mt-2 ml-6' />
+            <Image src={'/Logo2.webp'} alt='Logo' width={100} height={50}  className='block mt-2 ml-6' />
       <div className='grid ml-8  mt-6 w-full'>
       <h1 className='font-bold text-[2rem] lg:text-[3rem] w-full opacity-80 '>Category</h1>
       <p className='mb-10'>Select the category you belong to</p>

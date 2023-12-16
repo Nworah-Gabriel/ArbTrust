@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className={`hidden lg:block bg-white shadow-2xl  ${bar ? 'w-1/4' : 'w-24'} `}>
         <div className=' flex items-center justify-between'>
             <div>
-                <Image src={'/Logo.webp'} alt='logo' width={100} height={100} className='mb-8' />
+                <Image src={'/Logo2.webp'} alt='logo' width={100} height={100} className='mb-8' />
             </div>
             <div className='flex justify-end mx-4' onClick={() => barHandle(!bar)}>
                 <ArrowLeft className={`${bar ? null : 'rotate-180'}`} />

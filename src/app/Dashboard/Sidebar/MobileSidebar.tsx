@@ -17,7 +17,7 @@ const MobileSidebar = () => {
       <div className={`${mobileBar ? 'hidden' : 'block'}`} onClick={() => mobileBarHandler(!mobileBar)}>
         <div className='w-full flex items-center justify-between'>
             <div>
-                <Image src={'/Logo.webp'} alt='logo' width={100} height={100} className='mb-8' />
+                <Image src={'/Logo2.webp'} alt='logo' width={100} height={100} className='mb-8' />
             </div>
             <div className='flex justify-end mx-4'>
                 <X />
