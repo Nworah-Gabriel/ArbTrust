@@ -14,7 +14,7 @@ const Header = () => {
         </div>
       <div className='flex bg-white rounded-md p-4 px-6 justify-between shadow-lg'>
         {/* {User.name} */}
-        <p className='hidden lg:block'>@Peculiar</p> 
+        <p className='hidden lg:block'>@Vivian</p> 
         <Image alt='Profile' src={'/profile.webp'} width={30} height={100} />
       </div>
     </div>
