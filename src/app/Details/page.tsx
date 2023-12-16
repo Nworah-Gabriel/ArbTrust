@@ -5,9 +5,9 @@ const page = () => {
   return (
     <div className='flex w-full justify-center'>
       <div className='lg:flex lg:w-full'>
-      <Image src={'/Logo.webp'} alt='Logo' width={100} height={50}  className='block lg:hidden mt-2 ml-6' />
+      <Image src={'/Logo.webp'} alt='Logo' width={100} height={50}  className='block lg:hidden mt-2 ml-6 ' />
       <section className='overflow-hidden h-[100svh] hidden lg:block'>
-        <Image src={'/image.webp'} alt='Image' width={1200} height={100} />
+        <Image src={'/image.webp'} alt='Image' width={1200} height={100} className='h-[100svh]' />
       </section>
 
       <section className='lg:grid w-full px-10 lg:px-36 '>

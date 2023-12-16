@@ -23,7 +23,7 @@ export default function RootLayout({
       <div className=' flex'>
       <Sidebar />
       <MobileSidebar />
-      <div className='w-full'>
+      <div className='w-full '>
       <Header />
         {children}
         </div>

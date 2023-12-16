@@ -13,7 +13,7 @@ export const Navigation = [
         name: 'Market',
     },
     {
-        path: '#',
+        path: '/Dashboard/Collection',
         icon: <Gem />,
         name: 'Collections',
     },
@@ -139,6 +139,63 @@ export const Market = [
         icon: '/icon.webp' ,
         price: '0.80'
     },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+]
+
+export const Collection = [
     {
         name: 'Created by',
         handle: '@greatadams',

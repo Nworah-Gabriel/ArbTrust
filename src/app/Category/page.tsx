@@ -5,7 +5,7 @@ const page = () => {
   return (
     <div className='flex w-full justify-center h-[100svh]'>
       <section className='overflow-hidden h-[100svh] hidden lg:block'>
-        <Image src={'/image.webp'} alt='Image' width={1200} height={100} />
+        <Image src={'/image.webp'} alt='Image' width={1200} height={100} className='h-[100svh]' />
       </section>
 
       <section className='grid w-full px-10 justify-center lg:justify-normal'>

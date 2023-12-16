@@ -12,7 +12,7 @@ const MobileSidebar = () => {
     const [mobileBar, mobileBarHandler] = useState<boolean>(true)
 
   return (
-    <div className={`fixed block lg:hidden bg-white shadow-2xl h-[100svh] ${mobileBar ? 'w-0' : 'w-4/5'}`}>
+    <div className={`fixed block lg:hidden bg-white shadow-2xl h-[100svh] z-10 ${mobileBar ? 'w-0' : 'w-4/5'}`}>
          < Menu  className={`m-10 ${mobileBar ? 'block' : 'hidden'}`} onClick={() => mobileBarHandler(!mobileBar)}/>
       <div className={`${mobileBar ? 'hidden' : 'block'}`} onClick={() => mobileBarHandler(!mobileBar)}>
         <div className='w-full flex items-center justify-between'>

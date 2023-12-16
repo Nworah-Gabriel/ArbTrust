@@ -1,5 +1,4 @@
 'use client'
-// import React, { useEffect } from 'react';
 import { Market } from '@/app/ul/Navs';
 import Image from 'next/image';
 
