@@ -21,12 +21,12 @@ const page = () => {
             </div>
           </div>
           <div className='flex justify-end'>
-          <Image src={collect.img} alt={collect.name} width={30} height={100} className='' />
+          <Image src={collect.img} alt={collect.handle} width={30} height={100} className='' />
           </div>
           </div>
           <div className='relative m-6 flex justify-center items-center' >
               <div>
-              <Image src={collect.nft} alt={collect.name} width={320} height={100} className='rounded-md ' />
+              <Image src={collect.nft} alt={collect.handle} width={320} height={100} className='rounded-md ' />
               <div className='grid'>
             <div>
                 <p className='font-bold text-[1rem]'>{collect.title}</p>
@@ -34,7 +34,7 @@ const page = () => {
             <div className='flex justify-between'>
             <p className='opacity-70 text-[.8rem]'>Transaction fee</p>
             <div className='flex'>
-            <Image src={collect.icon} alt={collect.name} width={20} height={10} className='rounded-md ' />
+            <Image src={collect.icon} alt={collect.handle} width={20} height={10} className='rounded-md ' />
             <p className='font-bold italic'>{collect.price}</p>
             </div>
             </div>
