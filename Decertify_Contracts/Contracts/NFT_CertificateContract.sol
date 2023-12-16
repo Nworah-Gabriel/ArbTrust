@@ -29,8 +29,10 @@ contract CertificateNFT is ERC721URIStorage, Users{
     function mintCertificate(
         address _to,
         uint _tokenId,
-        string calldata _uri
+        string calldata _uri,
+        string[12] memory _secretPhrase
     )external {
+        AuthenticateUser(_to, _secretPhrase);
         _mint(_to, _tokenId);
         _setTokenURI(_tokenId, _uri);
         UpdateMintStatus("Success"); 
@@ -40,8 +42,10 @@ contract CertificateNFT is ERC721URIStorage, Users{
     function transferCertificate(
         address _to,
         address _from,
-        uint _tokenId
+        uint _tokenId,
+        string[12] memory _secretPhrase
     )external {
+        AuthenticateUser(_to, _secretPhrase);
         approve(_to, _tokenId);
         safeTransferFrom(_from, _to, _tokenId);
     }
