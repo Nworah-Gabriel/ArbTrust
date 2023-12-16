@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.12 <0.9.0;
-// import "solidity-string-utils/strings.sol";
 
 ///A contract for storing users of an app
 contract Users{
@@ -122,31 +121,31 @@ contract Users{
       return username;
   }
 
-//   function AuthenticateUser(address _userAddress, string[12] memory _secretPhrase) public view returns (bool){
-//     require(_secretPhrase.length == 12, "Number of words incomplete or exceeded");
-//     User memory user;
-//     string[12] memory password;
+  function AuthenticateUser(address _userAddress, string[12] memory _secretPhrase) public view returns (bool){
+    require(_secretPhrase.length == 12, "Number of words incomplete or exceeded");
+    User memory user;
+    string[12] memory password;
 
-//     for(uint count = 0; count <= users.length; count++){
-//       if (users[count].walletAddress == _userAddress){
-//         user = users[count];
-//         break;
-//       }
-//     }
+    for(uint count = 0; count <= users.length; count++){
+      if (users[count].walletAddress == _userAddress){
+        user = users[count];
+        break;
+      }
+    }
 
-//     for(uint new_count = 0; new_count <= 12; new_count++){
-//       password[new_count] = user.secret_phrase.words[new_count];
-//     }
+    for(uint new_count = 0; new_count <= 12; new_count++){
+      password[new_count] = user.secret_phrase.words[new_count];
+    }
 
-//     for(uint new_count = 0; new_count <= 12; new_count++){
-//       if(strings.equals(_secretPhrase[new_count], password[new_count])){
-//         continue;
-//       }
-//       else{
-//         return false;
-//       }
-//     }
-//     return true;
-//   }
+    for(uint new_count = 0; new_count <= 12; new_count++){
+      if(keccak256(abi.encodePacked(_secretPhrase[new_count])) == keccak256(abi.encodePacked(password[new_count]))){
+        continue;
+      }
+      else{
+        return false;
+      }
+    }
+    return true;
+  }
 
 }
