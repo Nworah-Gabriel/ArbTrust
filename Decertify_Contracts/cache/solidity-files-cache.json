@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Chimzuruoke\\Desktop\\Decert\\Decertify_Contracts\\Contracts\\NFT_CertificateContract.sol": {
-      "lastModificationDate": 1702732428931,
-      "contentHash": "1378ea5c6797da2e35acd16a86748541",
+      "lastModificationDate": 1702790507367,
+      "contentHash": "6fa09f4a2a050b8d62237c976c731acd",
       "sourceName": "Contracts/NFT_CertificateContract.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -42,8 +42,8 @@
       ]
     },
     "C:\\Users\\Chimzuruoke\\Desktop\\Decert\\Decertify_Contracts\\Contracts\\UsersContract.sol": {
-      "lastModificationDate": 1702732732886,
-      "contentHash": "9027fae1f635a61e508aaf2c936af38b",
+      "lastModificationDate": 1702790319355,
+      "contentHash": "4beaa113d476746145fb2adf9792de6f",
       "sourceName": "Contracts/UsersContract.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -679,6 +679,83 @@
         "^0.8.20"
       ],
       "artifacts": []
+    },
+    "C:\\Users\\Chimzuruoke\\Desktop\\Decert\\Decertify_Contracts\\node_modules\\solidity-string-utils\\StringUtils.sol": {
+      "lastModificationDate": 1702732068086,
+      "contentHash": "3efa539fd04e251062b6a8face7591cd",
+      "sourceName": "solidity-string-utils/StringUtils.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "StringUtils"
+      ]
+    },
+    "C:\\Users\\Chimzuruoke\\Desktop\\Decert\\Decertify_Contracts\\Contracts\\ContractFactory.sol": {
+      "lastModificationDate": 1702790496396,
+      "contentHash": "56ba765c378078200b12dc4e5e896911",
+      "sourceName": "Contracts/ContractFactory.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "hardhat/console.sol",
+        "./NFT_CertificateContract.sol",
+        "./UsersContract.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "NFT_Factory"
+      ]
     }
   }
 }

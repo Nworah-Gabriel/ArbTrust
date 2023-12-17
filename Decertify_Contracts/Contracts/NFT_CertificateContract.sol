@@ -32,10 +32,13 @@ contract CertificateNFT is ERC721URIStorage, Users{
         string calldata _uri,
         string[12] memory _secretPhrase
     )external {
-        AuthenticateUser(_to, _secretPhrase);
-        _mint(_to, _tokenId);
-        _setTokenURI(_tokenId, _uri);
-        UpdateMintStatus("Success"); 
+        bool userExists;
+        (userExists) = AuthenticateUser(_to, _secretPhrase);
+        if(userExists == true){
+            _mint(_to, _tokenId);
+            _setTokenURI(_tokenId, _uri);
+            UpdateMintStatus("Success");
+        } 
     }
 
     ///A function created for transfering certificate ownership
@@ -45,9 +48,12 @@ contract CertificateNFT is ERC721URIStorage, Users{
         uint _tokenId,
         string[12] memory _secretPhrase
     )external {
-        AuthenticateUser(_to, _secretPhrase);
-        approve(_to, _tokenId);
-        safeTransferFrom(_from, _to, _tokenId);
+        bool userExists;
+        (userExists) = AuthenticateUser(_to, _secretPhrase);
+        if(userExists == true){
+            approve(_to, _tokenId);
+            safeTransferFrom(_from, _to, _tokenId);
+        }
     }
 
     ///A function to check an NFT owner
