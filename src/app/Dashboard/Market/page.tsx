@@ -2,7 +2,7 @@
 import { Market } from '@/app/ul/Navs';
 import Image from 'next/image';
 
-const page = () => {
+const page = () => {   
    
    return (
     <div className='w-full mr-10 h-[87svh] overflow-y-scroll'>

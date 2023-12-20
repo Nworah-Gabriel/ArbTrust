@@ -15,7 +15,7 @@ const MobileSidebar = () => {
     <div className={`fixed block lg:hidden bg-white shadow-2xl h-[100svh] z-10 ${mobileBar ? 'w-0' : 'w-4/5'}`}>
          < Menu  className={`m-10 ${mobileBar ? 'block' : 'hidden'}`} onClick={() => mobileBarHandler(!mobileBar)}/>
       <div className={`${mobileBar ? 'hidden' : 'block'}`} onClick={() => mobileBarHandler(!mobileBar)}>
-        <div className='w-full flex items-center justify-between'>
+        <div className='w-full flex items-center justify-between text-black'>
         <div className='mt-4 ml-6 cursor-pointer'>
                 <Link href='/Dashboard'>
                 <Image src={'/Logo2.webp'} alt='logo' width={200} height={100} className='mb-8' />

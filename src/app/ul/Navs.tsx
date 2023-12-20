@@ -251,3 +251,51 @@ export const Collection = [
         price: '0.80'
     },
 ]
+
+export const VeiwCollection = [
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@primidac',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Cyber Security Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@primidac',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Web Design and Development Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    }
+]
