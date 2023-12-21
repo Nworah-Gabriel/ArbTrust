@@ -12,7 +12,7 @@ const Sidebar = () => {
 
 
   return (
-    <div className={`hidden lg:block bg-white shadow-2xl shadow-black  ${bar ? 'w-1/4' : 'w-24'} `}>
+    <div className={`h-screen hidden lg:block bg-white shadow-2xl shadow-black  ${bar ? 'w-1/4' : 'w-24'} `}>
         <div className=' flex items-center justify-between text-black'>
             <div className='mt-4 ml-6 cursor-pointer'>
                 <Link href='/Dashboard'>

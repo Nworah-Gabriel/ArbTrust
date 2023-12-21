@@ -18,10 +18,28 @@ export const Navigation = [
         name: 'Collections',
     },
     {
-        path: '#',
+        path: 'DSettings',
         icon: <Settings />,
         name: 'Settings',
     },
+]
+
+export const DSettings = [
+    {
+        path: '/Dashboard/DSettings',
+        icon: <LayoutDashboard />,
+        name: 'General Information',
+    },
+    {
+        path: '/Dashboard/DSettings/Security',
+        icon: <Store />,
+        name: 'Security',
+    },
+    {
+        path: '#',
+        icon: <Gem />,
+        name: 'Notifications',
+    }
 ]
 
 export const Creator = [
