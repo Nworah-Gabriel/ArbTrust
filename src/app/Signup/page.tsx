@@ -24,8 +24,4 @@ const page = () => {
   )
 }
 
-<<<<<<< HEAD
-export default page
-=======
 export default page;
->>>>>>> master

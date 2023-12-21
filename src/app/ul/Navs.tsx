@@ -36,7 +36,7 @@ export const DSettings = [
         name: 'Security',
     },
     {
-        path: '#',
+        path: '/Dashboard/DSettings/DNotifications',
         icon: <Gem />,
         name: 'Notifications',
     }
