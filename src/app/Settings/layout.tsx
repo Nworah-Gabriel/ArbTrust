@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
-import  Sidebar  from './Sidebar/Sidebar'
-import Header from './Header/Header'
-import MobileSidebar from './Sidebar/MobileSidebar'
-import Providers from '../ul/Providers'
-import '@rainbow-me/rainbowkit/styles.css'
+import  Sidebar  from '../Dashboard/Sidebar/Sidebar'
+import MobileSidebar from '../Dashboard/Sidebar/MobileSidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,18 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='bg-[#f8f8ff] fixed overflow-hidden'>
+    <html lang="en" className='bg-[#f8f8ff]'>
       <body className={inter.className}>
-      <Providers>
       <div className=' flex'>
       <Sidebar />
       <MobileSidebar />
-      <div className='w-full '>
-      <Header />
         {children}
         </div>
-        </div>
-        </Providers>
       </body>
     </html>
   )

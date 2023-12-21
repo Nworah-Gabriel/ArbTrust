@@ -2,6 +2,8 @@
 import { Search } from 'lucide-react'
 import Image from 'next/image'
 import {useState} from 'react'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 
 const Header = () => {
     const [search, searchAct] = useState<boolean>(true)
@@ -16,6 +18,7 @@ const Header = () => {
         {/* {User.name} */}
         <p className='hidden lg:block mr-2'>@Vivian</p> 
         <Image alt='Profile' src={'/profile.webp'} width={30} height={100} />
+        <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />;
       </div>
     </div>
   )
