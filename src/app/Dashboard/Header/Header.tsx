@@ -2,8 +2,19 @@
 import { Search } from 'lucide-react'
 import Image from 'next/image'
 import {useState} from 'react'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import {useRouter} from 'next/navigation'
+import { useAccount } from 'wagmi'
+
 
 const Header = () => {
+  const router = useRouter();
+const {address, isConnected} = useAccount();
+
+if(isConnected == false){
+  router.push("/")
+}
+
     const [search, searchAct] = useState<boolean>(true)
 
   return (
@@ -16,6 +27,7 @@ const Header = () => {
         {/* {User.name} */}
         <p className='hidden lg:block mr-2'>@Vivian</p> 
         <Image alt='Profile' src={'/profile.webp'} width={30} height={100} />
+        <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />;
       </div>
     </div>
   )
