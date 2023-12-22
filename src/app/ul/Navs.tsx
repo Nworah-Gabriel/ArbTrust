@@ -18,7 +18,7 @@ export const Navigation = [
         name: 'Collections',
     },
     {
-        path: 'DSettings',
+        path: '/Dashboard/DSettings',
         icon: <Settings />,
         name: 'Settings',
     },

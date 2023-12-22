@@ -1,9 +1,7 @@
 {
-  "/not-found": "app/not-found.js",
-  "/Details/page": "app/Details/page.js",
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/Dashboard/DSettings/Security/page": "app/Dashboard/DSettings/Security/page.js",
-  "/Dashboard/DSettings/page": "app/Dashboard/DSettings/page.js",
-  "/Dashboard/DSettings/DNotifications/page": "app/Dashboard/DSettings/DNotifications/page.js"
+  "/Dashboard/DSettings/DNotifications/page": "app/Dashboard/DSettings/DNotifications/page.js",
+  "/Dashboard/page": "app/Dashboard/page.js",
+  "/Dashboard/Creators/page": "app/Dashboard/Creators/page.js",
+  "/Dashboard/Collection/page": "app/Dashboard/Collection/page.js"
 }

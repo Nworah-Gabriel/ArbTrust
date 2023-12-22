@@ -21,7 +21,7 @@ const page = () => {
             <div className='w-4/5 ml-5 pt-6'>
                 <h1 className='text-xl font-bold mb-2'>Security Information</h1>
                 <p>Here you can change and edit your informatoins</p>
-                <h2 className='text-sm font-bold my-4'>View Recovery Phrases</h2>
+                <h2 className='text-sm font-bold my-5'>View Recovery Phrases</h2>
                 <div className='w-4/5'>
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Web3</button>
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Bless</button>
@@ -45,7 +45,7 @@ const page = () => {
 
                     return(
                         <div>
-                            <div key={index} className='flex flex-row lg:flex-col h-16 lg:h-16 items-center p-2 text-purple-800 font-bold'>
+                            <div key={index} className='flex flex-row lg:flex-col h-16 lg:h-20 items-center p-2 hover:text-purple-800 font-bold'>
                             <Link href={setings.path} className='flex outline outline-1 outline-slate-100 lg:outline-none hover:bg-purple-300 hover:outline-none p-4 w-56 rounded-md m-0 lg:mx-8'>
                                 <span className='mr-2'>{setings.icon}</span>
                                 <span className="" >{setings.name}</span>

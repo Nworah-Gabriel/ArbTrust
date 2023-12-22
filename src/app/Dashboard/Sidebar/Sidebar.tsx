@@ -36,7 +36,7 @@ const Sidebar = () => {
             )
         })}
 
-        <div className={`flex items-center font-bold w-2/4 lg:w-3/4 text-black rounded-md  p-4 cursor-pointer text-red-500 mt-52 ${bar ? 'mx-4 lg:mx-8' : 'mx-4'}`}><span className='mr-2'><LogOut /></span><span className={`${bar ? 'block hidden lg:block' : 'hidden'}`}>Logout</span></div>
+        <div className={`flex items-center font-bold w-2/4 lg:w-3/4 rounded-md  p-4 cursor-pointer text-red-500 mt-48 ${bar ? 'mx-4 lg:mx-8' : 'mx-4'}`}><span className='mr-2'><LogOut /></span><span className={`${bar ? 'block hidden lg:block' : 'hidden'}`}>Logout</span></div>
     </div>
   )
 }

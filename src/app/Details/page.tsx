@@ -32,7 +32,7 @@ const page = () => {
          <p className='font-bold text-[1.5rem]'>Upload a Picture</p>
       </div>
 
-      <div className='grid w-full 0 lg:ml-10 lg:ml-0 h-screen'>
+      <div className='grid w-full 0 lg:ml-10 lg:ml-0'>
         <form className=''>
           <div className='grid lg:flex lg:justify-between'>
           <div className=''>

@@ -28,7 +28,7 @@ const page = () => {
 
                     return(
                         <div>
-                            <div key={index} className='flex flex-row lg:flex-col h-16 lg:h-16 items-center p-2 text-purple-800 font-bold'>
+                            <div key={index} className='flex flex-row lg:flex-col h-16 lg:h-20 items-center p-2 hover:text-purple-800 font-bold'>
                             <Link href={setings.path} className='flex outline outline-1 outline-slate-100 lg:outline-none hover:bg-purple-300 hover:outline-none p-4 w-56 rounded-md mx-8'>
                                 <span className='mr-2'>{setings.icon}</span>
                                 <span className="" >{setings.name}</span>
