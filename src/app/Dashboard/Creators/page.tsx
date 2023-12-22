@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Page = ()=> {
     return(
-        <div className='w-full mr-10 h-[90vh] overflow-y-scroll text-black bg-[#EDEDED] '>
+        <div className='w-full mr-10 h-[90vh] overflow-y-scroll text-black bg-[#EDEDED]'>
             <div className='ml-12 flex items-center'>
                 <Image src={'/face.svg'} alt='...' width={150} height={150} className='sm:h-[60px] sm:w-[60px]' />
                 <div className='pl-4'>

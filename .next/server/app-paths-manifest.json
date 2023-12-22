@@ -1,4 +1,5 @@
 {
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/Dashboard/DSettings/Security/page": "app/Dashboard/DSettings/Security/page.js",
   "/Dashboard/DSettings/DNotifications/page": "app/Dashboard/DSettings/DNotifications/page.js",
   "/Dashboard/page": "app/Dashboard/page.js",
