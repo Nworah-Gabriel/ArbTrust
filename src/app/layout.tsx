@@ -18,16 +18,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // function Profile() {
-  //   const { address, isConnected } = useAccount()
-  //   const { data: ensName } = useEnsName({ address })
-  //   const { connect } = useConnect({
-  //     connector: new InjectedConnector(),
-  //   })
-   
-  //   if (isConnected){ console.log("connected") }else{console.log("is not connected")}
-  // }
-  // Profile()
 
   return (
     <html lang="en" className='h-[100svh]'>

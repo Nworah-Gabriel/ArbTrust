@@ -1,20 +1,20 @@
 "use client";
 import React, { ReactNode } from "react";
-import {useEffect} from 'react'
+// import {useEffect} from 'react'
 import {
   RainbowKitProvider,
   getDefaultWallets,
   connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
-import {
-  argentWallet,
-  trustWallet,
-  ledgerWallet,
-} from "@rainbow-me/rainbowkit/wallets";
+// import {
+//   argentWallet,
+//   trustWallet,
+//   ledgerWallet,
+// } from "@rainbow-me/rainbowkit/wallets";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {  lineaTestnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
-import { useAccount } from "wagmi";
+// import { useAccount } from "wagmi";
 
 //lets use the id this way for now. we will move it to '.env' on deployment.
 const projectId = '400208dc5bbe17166594a12111c9fec6';
