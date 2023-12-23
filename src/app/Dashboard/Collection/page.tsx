@@ -6,7 +6,7 @@ import { Download } from 'lucide-react';
 const page = () => {
    
    return (
-    <div className='w-full mr-10 h-[87svh] overflow-y-scroll text-black bg-[#EDEDED]'>
+    <div className='w-full mr-10 h-[90vh] overflow-y-scroll text-black bg-[#EDEDED]'>
     <div className='m-10'>
     </div>
     <div className='grid grid-cols-[repeat(auto-fit,_minmax(17rem,_1fr))] gap-x-2 gap-y-2 justify-center ml-10 lg:ml-0 mr-10 lg:mr-0'>

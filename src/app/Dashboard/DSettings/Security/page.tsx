@@ -10,19 +10,23 @@ const page = () => {
 
 
   return (
-    <div className='bg-[#EDEDED] h-screen'>
-        <div className='text-black pl-6'>
-            <div className=''>
+    <div className='bg-[#EDEDED] h-[100vh]'>
+        <div className='flex justify-between items-center text-black mx-6 pt-20 lg:pt-5'>
+            <div>
                 <h1 className='text-3xl font-black pb-2'>Settings</h1>
                 <p>Here you can change and edit your informations</p>
             </div>
+            <div className='hidden lg:flex pl-12 w-1/3'>
+                <button className='w-full mr-3 outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-800 hover:text-white p-3 rounded-md'>Cancel</button>
+                <button className='w-full bg-purple-800 p-3 text-white rounded-md'>Save Changes</button>
+            </div>
         </div>
-        <div className="flex flex-col-reverse lg:flex-row-reverse text-black bg-white p-3 m-6 rounded-md lg:h-[70vh]">
-            <div className='w-4/5 ml-5 pt-6'>
+        <div className="flex flex-col-reverse lg:flex-row-reverse text-black bg-white p-3 my-3 mx-6 rounded-md lg:h-[82vh]">
+            <div className='w-full lg:w-4/5 mx-0 lg:mx-5 pt-3'>
                 <h1 className='text-xl font-bold mb-2'>Security Information</h1>
                 <p>Here you can change and edit your informatoins</p>
                 <h2 className='text-sm font-bold my-5'>View Recovery Phrases</h2>
-                <div className='w-4/5'>
+                <div className='w-full'>
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Web3</button>
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Bless</button>
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Good</button>
@@ -39,7 +43,7 @@ const page = () => {
                 </div>
                 <button className='bg-[#EB1515] text-white p-3 rounded-md mt-5'>Delete Account</button>
             </div>
-            <div className='flex lg:block m-auto overflow-x-scroll lg:overflow-hidden w-11/12 lg:w-1/4 lg:m-0 border-r-2 border-slate-300'>
+            <div className='flex lg:block m-auto overflow-x-scroll lg:overflow-hidden w-11/12 lg:w-1/4 lg:m-0 border-r-2 border-slate-300 text-sm'>
                 {DSettings.map((setings,index) =>{
                     // const active = Pathname === setings.path;
 

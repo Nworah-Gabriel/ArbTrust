@@ -30,13 +30,13 @@ const Sidebar = () => {
                 <li key={i} className='grid h-20 items-center'>
                     <Link href={link.path} className={`flex items-center font-bold text-black rounded-md p-4 cursor-pointer ${bar ? 'w-2/4 lg:w-3/4 mx-4 lg:mx-8' : 'w-2/4 mx-4'} ${active ? 'bg-purple-950 text-white hover:bg-purple-900 hover:shadow-md hover:shadow-purple-500' : null}`}>
                         <span className='mr-2'>{link.icon}</span>
-                        <span className={` ${bar ? 'block hidden lg:block' : 'hidden'}`} >{link.name}</span>
+                        <span className={` ${bar ? 'hidden lg:block' : 'hidden'}`} >{link.name}</span>
                     </Link>
                 </li>
             )
         })}
 
-        <div className={`flex items-center font-bold w-2/4 lg:w-3/4 rounded-md  p-4 cursor-pointer text-red-500 mt-48 ${bar ? 'mx-4 lg:mx-8' : 'mx-4'}`}><span className='mr-2'><LogOut /></span><span className={`${bar ? 'block hidden lg:block' : 'hidden'}`}>Logout</span></div>
+        <div className={`flex items-center font-bold w-2/4 lg:w-3/4 rounded-md  p-4 cursor-pointer text-red-500 mt-48 ${bar ? 'mx-4 lg:mx-8' : 'mx-4'}`}><span className='mr-2'><LogOut /></span><span className={`${bar ? 'hidden lg:block' : 'hidden'}`}>Logout</span></div>
     </div>
   )
 }
