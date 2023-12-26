@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const page = () => {
   return (
-    <div className='flex text-black bg-[#EDEDED] w-full h-[100svh]'>
+    <div className='flex items-center text-black bg-[#EDEDED] w-full h-[100svh]'>
       <section className='overflow-hidden h-[100vh] hidden lg:block w-1/2'>
         <Image src={'/image.webp'} alt='Image' width={1200} height={100} className='h-[100vh]' />
       </section>
