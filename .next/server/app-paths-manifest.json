@@ -1,7 +1,0 @@
-{
-  "/Dashboard/Collection/page": "app/Dashboard/Collection/page.js",
-  "/Dashboard/DSettings/page": "app/Dashboard/DSettings/page.js",
-  "/Dashboard/DSettings/Security/page": "app/Dashboard/DSettings/Security/page.js",
-  "/Dashboard/DSettings/DNotifications/page": "app/Dashboard/DSettings/DNotifications/page.js",
-  "/Dashboard/page": "app/Dashboard/page.js"
-}
