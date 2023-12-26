@@ -4,13 +4,13 @@ import Link from 'next/link'
 
 const page = () => {
   return (
-    <div className='flex items-center text-black bg-[#EDEDED] w-full h-[100svh]'>
+    <div className='flex lg:items-center justify-center text-black bg-[#EDEDED] w-full h-[100vh]'>
       <section className='overflow-hidden h-[100vh] hidden lg:block w-1/2'>
         <Image src={'/image.webp'} alt='Image' width={1200} height={100} className='h-[100vh]' />
       </section>
 
       <section className='flex flex-col lg:justify-center justify-normal lg:w-1/2 px-5 h-[100vh] bg-[#EDEDED]'>
-        <Image src={'/Logo2.webp'} alt='Logo' width={120} height={100}  className='hidden lg:block' />
+        <Image src={'/Logo2.webp'} alt='Logo' width={120} height={100}  className='hidden lg:block mt-5' />
         <div className='flex flex-col w-full lg:ml-0 h-screen'>
           <Image src={'/Logo2.webp'} alt='Logo' width={120} height={100} className='block lg:hidden mt-5 lg:mt-0' />
           <div className='flex flex-col justify-center w-full mt-5'>
