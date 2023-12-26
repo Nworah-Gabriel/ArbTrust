@@ -18,10 +18,28 @@ export const Navigation = [
         name: 'Collections',
     },
     {
-        path: '/Settings',
+        path: '/Dashboard/DSettings',
         icon: <Settings />,
         name: 'Settings',
     },
+]
+
+export const DSettings = [
+    {
+        path: '/Dashboard/DSettings',
+        icon: <LayoutDashboard />,
+        name: 'General Information',
+    },
+    {
+        path: '/Dashboard/DSettings/Security',
+        icon: <Store />,
+        name: 'Security',
+    },
+    {
+        path: '/Dashboard/DSettings/DNotifications',
+        icon: <Gem />,
+        name: 'Notifications',
+    }
 ]
 
 export const Creator = [
@@ -250,4 +268,52 @@ export const Collection = [
         icon: '/icon.webp' ,
         price: '0.80'
     },
+]
+
+export const VeiwCollection = [
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@primidac',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Cyber Security Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    },
+    {
+        name: 'Created by',
+        handle: '@primidac',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Web Design and Development Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    }
 ]

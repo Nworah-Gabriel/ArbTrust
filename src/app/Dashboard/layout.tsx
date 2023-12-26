@@ -4,8 +4,6 @@ import '../globals.css'
 import  Sidebar  from './Sidebar/Sidebar'
 import Header from './Header/Header'
 import MobileSidebar from './Sidebar/MobileSidebar'
-import Providers from '../ul/Providers'
-import '@rainbow-me/rainbowkit/styles.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +20,6 @@ export default function RootLayout({
   return (
     <html lang="en" className='bg-[#f8f8ff] fixed overflow-hidden'>
       <body className={inter.className}>
-      <Providers>
       <div className=' flex'>
       <Sidebar />
       <MobileSidebar />
@@ -31,7 +28,6 @@ export default function RootLayout({
         {children}
         </div>
         </div>
-        </Providers>
       </body>
     </html>
   )

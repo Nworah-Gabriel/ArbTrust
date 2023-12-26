@@ -10,7 +10,7 @@ const page = () => {
             <p className='mt-6 lg:mt-8'>A platform that enables learners to earn and display non-fungible token (NFT) certificate as proof of their educational achievements </p>
             <button type='button' className='bg-purple-950 hover:bg-purple-900 hover:shadow-lg hover:shadow-purple-500 rounded-md p-4 text-white mt-4'>Explore Collection</button>
         </div>
-        <Image src={'/placeholder.webp'} alt='Placeholder' width={350} height={100} className='mr-28 mt-[-2rem] hidden lg:block'/>
+        <Image src={'/placeholder.webp'} alt='Placeholder' width={350} height={100} className='pt-2 mr-28 mt-[-2rem] hidden lg:block'/>
       </div>
     </div>
   )
