@@ -54,20 +54,19 @@ const page = () => {
                 </div>
             </div>
             <div className='flex lg:block m-auto overflow-x-scroll lg:overflow-hidden w-11/12 lg:w-1/4 lg:m-0 border-r-2 border-slate-300 text-sm'>
-                {DSettings.map((setings,index) =>{
-                    // const active = Pathname === setings.path;
-
-                    return(
-                        <div>
-                            <div key={index} className='flex flex-row lg:flex-col h-16 lg:h-20 items-center p-2 hover:text-purple-800 font-bold'>
-                            <Link href={setings.path} className='flex outline outline-1 outline-slate-100 lg:outline-none hover:bg-purple-300 hover:outline-none p-4 w-56 rounded-md mx-0 lg:mx-8'>
-                                <span className='mr-2'>{setings.icon}</span>
-                                <span className="" >{setings.name}</span>
-                            </Link>
+            {DSettings.map((settings, index) => {
+                        
+                        return (
+                            <div key={index}>
+                                <div className='flex flex-row lg:flex-col h-16 lg:h-20 items-center p-2 hover:text-purple-800 font-bold'>
+                                    <Link href={settings.path} className='flex outline outline-1 outline-slate-100 lg:outline-none hover:bg-purple-300 hover:outline-none p-4 w-56 rounded-md mx-0 lg:mx-8'>
+                                        <span className='mr-2'>{settings.icon}</span>
+                                        <span className="">{settings.name}</span>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    )
-                })}
+                        );
+                    })}
             </div>
         </div>
     </div>

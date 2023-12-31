@@ -1,8 +1,16 @@
-import React from 'react'
+'use client'
 import Image from 'next/image'
-import Link from 'next/link'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+import {useRouter} from 'next/navigation'
+import { useAccount } from 'wagmi'
 
-const page = () => {
+const Signup = () => {
+const router = useRouter();
+const {address, isConnected} = useAccount();
+
+if(isConnected == true){
+  router.push("/Details")
+}
   return (
     <div className='flex lg:items-center justify-center text-black bg-[#EDEDED] w-full h-[100vh]'>
       <section className='overflow-hidden h-[100vh] hidden lg:block w-1/2'>
@@ -17,9 +25,10 @@ const page = () => {
             <h1 className='font-bold text-[2rem] lg:text-[4rem] w-3/4 opacity-70 '>Connect Your Wallet</h1>
             <p className='w-3/4 mt-10 mb-10 text-xs lg:text-xl'>Choose your prefered Blockchain and connect your on-chain Identity</p>
             <p className='font-bold mb-4'>Blockchain</p>
-            <Link href="/Details">
-              <button type='button' className='flex items-center w-full justify-center bg-purple-900 hover:bg-purple-800 p-2 mr-2 rounded-md text-white'><Image src={'/metamask.webp'} alt='Metamask Logo' width={40} height={100} /> Connect with Metamask</button>
-            </Link>
+            <div className='flex items-center'>
+              <Image src={'/metamask.webp'} alt='metamask' width={50} height={100} className='mr-4'/>
+              <ConnectButton label='Connect with Metamask' />
+            </div>
           </div>
         </div>
       </section>
@@ -27,4 +36,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default Signup;

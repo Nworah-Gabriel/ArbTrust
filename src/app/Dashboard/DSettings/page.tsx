@@ -11,14 +11,14 @@ const page = () => {
 
 
   return (
-    <div className='bg-[#EDEDED] h-[100vh]'>
-        <div className='flex justify-between items-center text-black mx-6 pt-20 lg:pt-5'>
+    <div className='bg-[#EDEDED] h-[100vh] overflow-y-scroll'>
+        <div className='flex justify-between items-center text-black mx-6 pt-20 lg:pt-5 '>
             <div>
                 <h1 className='text-3xl font-black pb-2'>Settings</h1>
                 <p>Here you can change and edit your informations</p>
             </div>
             <div className='lg:flex hidden pl-12 w-1/3'>
-                <button className='w-full mr-3 outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-800 hover:text-white p-3 rounded-md'>Cancel</button>
+                <button className='w-full mr-3 outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-500 hover:text-white p-3 rounded-md'>Cancel</button>
                 <button className='w-full bg-purple-800 p-3 text-white rounded-md'>Save Changes</button>
             </div>
         </div>
@@ -47,7 +47,7 @@ const page = () => {
                                 </div>
                                 <div className='flex w-full lg:w-1/2 mt-5 pl-0 lg:pl-10'>
                                     <button className='w-full mr-3 bg-purple-800 text-white p-3 rounded-md'>Upload</button>
-                                    <button className='w-full outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-800 hover:text-white p-3 rounded-md'>Delete</button>
+                                    <button className='w-full outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-500 hover:text-white p-3 rounded-md'>Delete</button>
                                 </div>
                             </div>
 
@@ -79,20 +79,20 @@ const page = () => {
                 </div>
             </div>
             <div className='flex lg:block m-auto overflow-x-scroll lg:overflow-hidden w-11/12 lg:w-1/4 lg:m-0 border-r-2 border-slate-300 text-sm'>
-                {DSettings.map((setings,index) =>{
-                    // const active = Pathname === setings.path;
-
-                    return(
-                        <div>
-                            <div key={index} className='flex flex-row lg:flex-col h-16 lg:h-20 items-center p-2 hover:text-purple-800 font-bold'>
-                            <Link href={setings.path} className='flex outline outline-1 outline-slate-100 lg:outline-none hover:bg-purple-300 hover:outline-none p-4 w-56 rounded-md mx-0 lg:mx-8'>
-                                <span className='mr-2'>{setings.icon}</span>
-                                <span className="" >{setings.name}</span>
-                            </Link>
+                    
+                    {DSettings.map((settings, index) => {
+                        
+                        return (
+                            <div key={index}>
+                                <div className='flex flex-row lg:flex-col h-16 lg:h-20 items-center p-2 hover:text-purple-800 font-bold'>
+                                    <Link href={settings.path} className='flex outline outline-1 outline-slate-100 lg:outline-none hover:bg-purple-300 hover:outline-none p-4 w-56 rounded-md mx-0 lg:mx-8'>
+                                        <span className='mr-2'>{settings.icon}</span>
+                                        <span className="">{settings.name}</span>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    )
-                })}
+                        );
+                    })}
             </div>
         </div>
     </div>

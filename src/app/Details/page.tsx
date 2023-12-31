@@ -30,7 +30,6 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <input type='file' />
             <p className='font-bold text-[1.5rem]'>Upload a Picture</p>
           </div>
 
@@ -55,7 +54,7 @@ const page = () => {
                 <label htmlFor='email'>Email Address</label>
                 <input type='email' placeholder='Enter Email Address' className='w-full p-3 rounded-md mt-1'/>
               </div>
-              <button type='button' className='w-full bg-purple-900 mt-6 p-3 rounded-md text-white'>Next</button>
+              <button type='button' className='w-full bg-purple-900 mt-6 p-3 rounded-md text-white hover:bg-purple-950'>Next</button>
             </form>  
           </div>
         </section>

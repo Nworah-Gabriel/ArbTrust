@@ -15,8 +15,9 @@ const Sidebar = () => {
     <div className={`h-screen hidden lg:block bg-white shadow-2xl shadow-black  ${bar ? 'w-1/4' : 'w-24'} `}>
         <div className=' flex items-center justify-between text-black'>
             <div className='mt-4 ml-6 cursor-pointer'>
-                <Link href='/Dashboard'>
-                <Image src={'/Logo2.webp'} alt='logo' width={200} height={100} className='mb-8' />
+                <Link href='/Dashboard' className={``}>
+                <Image src={'/Logo2.webp'} alt='logo' width={200} height={100} className={`mb-8 ${bar ? 'block' : 'hidden'}`} />
+                <Image src={'/Logo3.webp'} alt='logo' width={100} height={100} className={`mb-8 ${bar ? 'hidden' : 'block'}`} />
                 </Link>
             </div>
             <div className='flex justify-end mx-4 cursor-pointer' onClick={() => barHandle(!bar)}>
