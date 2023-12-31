@@ -38,7 +38,7 @@ const MobileSidebar = () => {
                 )
             })}
 
-            <div className={`flex items-center font-bold w-2/4 lg:w-3/4 rounded-md  p-4 cursor-pointer text-red-500 mt-52`}><span className='mr-2'><LogOut /></span><span className={``}>Logout</span></div>
+            <div className={`flex items-center font-bold w-2/4 lg:w-3/4 rounded-md p-4 cursor-pointer text-red-500 mt-24`}><span className='ml-5'><LogOut /></span><span className={``}>Logout</span></div>
         </div>
     </div>
   )

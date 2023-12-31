@@ -317,3 +317,15 @@ export const VeiwCollection = [
         price: '0.80'
     }
 ]
+
+export const MintCertificate = [
+    {
+        name: 'Created by',
+        handle: '@greatadams',
+        img: '/profile.webp',
+        nft:'/image.webp',
+        title: 'Solidity Certificate',
+        icon: '/icon.webp' ,
+        price: '0.80'
+    }
+]
