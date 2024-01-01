@@ -28,7 +28,8 @@ contract NFT_Factory is Users{
             if(userIsAnNFT_Issuer == true){
                 certificateNFTClone = new CertificateNFT(
                 contractname,
-                symbol
+                symbol,
+                _address
                     );
                 certificateNFT.push(certificateNFTClone);
                 return (success = true, certificateNFTClone);
@@ -43,7 +44,15 @@ contract NFT_Factory is Users{
 
     
     //A function for getting a deployed NFT from the certificateNFT array
-    function getNFTCertificate_index(uint index) external view returns (CertificateNFT) {
-        return certificateNFT[index];
-    }
+    // function getSpecificNFTCertificate(address contractDeployer) external view returns (CertificateNFT) {
+    //     CertificateNFT NFTContract;
+    //     for(uint count = 0; count <= certificateNFT.length; count += 1){
+    //         if(certificateNFT[count].contractDeployer == contractDeployer){
+    //             NFTContract = certificateNFT[count];
+    //             break;
+    //             return NFTContract;
+    //         }
+    //     }
+    //     return NFTContract;
+    // }
 }
