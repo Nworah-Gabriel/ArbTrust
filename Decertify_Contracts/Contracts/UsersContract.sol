@@ -5,6 +5,8 @@ pragma solidity >=0.6.12 <0.9.0;
 contract Users{
 
     address public _owner;
+
+    //---This data structures below will be used for User grouping and also storing user data---//
     enum group{
         NFT_Issuer,
         NFT_Claimer
@@ -18,6 +20,7 @@ contract Users{
     ///A structure for storing an account secret phrase
     struct Collections{
         string Title;
+        string IPFSUrlLink;
     }
 
     ///A structure for grouping a user data
@@ -28,7 +31,8 @@ contract Users{
         string email_address;
         address walletAddress;
         group userGroup;
-        Collections NFT_Collections;
+        Collections[] NFT_Collections;
+        uint CollectionCount;
         Phrase secret_phrase;
     }
 
@@ -84,11 +88,17 @@ contract Users{
   }
 
 
-    ///A function that gets an existing account in the user array
-    function getUser(uint index) external view returns (User memory){
-      require(index < users.length, "This User doesn't exist");
-      return users[index];
+  function getUser(address _userAddress) external view returns (User memory){
+      User memory user;
+        for(uint count = 0; count <= users.length; count++){
+            if (users[count].walletAddress == _userAddress){
+                user = users[count];
+                break;
+            }
+        }
+      return user;
   }
+
 
   function getTotalUser() external view returns (uint){
       return users.length;
@@ -164,5 +174,4 @@ contract Users{
     }
     return true;
   }
-
 }
