@@ -7,12 +7,13 @@ import "./UsersContract.sol";
 
 contract CertificateNFT is ERC721URIStorage, Users{
 
-    constructor(string memory contractname, string memory symbol) ERC721(contractname, symbol){
+    constructor(string memory contractname, string memory symbol, address _deployerAddress) ERC721(contractname, symbol){
         console.log("Contract Name:", contractname);
         console.log("Contract symbol:", symbol);
         console.log("Contract deployer:", msg.sender);
+        contractDeployer = payable(_deployerAddress);
     }
-    address contractDeployer;
+    address payable contractDeployer;
     string CertificateMintStatus;
 
     ///A function for updating the state variable "CertificateMintStatus" for test purpose
@@ -22,7 +23,7 @@ contract CertificateNFT is ERC721URIStorage, Users{
 
     ///A function that updates a state variable
     function updateContractDeployer(address _address)external{
-        contractDeployer = _address;
+        contractDeployer = payable(_address);
     }
 
     ///A function created for minting certificate as NFT
@@ -31,7 +32,7 @@ contract CertificateNFT is ERC721URIStorage, Users{
         uint _tokenId,
         string calldata _uri,
         string[12] memory _secretPhrase
-    )external {
+    ) payable external {
         bool userExists;
         (userExists) = AuthenticateUser(_to, _secretPhrase);
         if(userExists == true){
@@ -47,7 +48,7 @@ contract CertificateNFT is ERC721URIStorage, Users{
         address _from,
         uint _tokenId,
         string[12] memory _secretPhrase
-    )external {
+    )payable external {
         bool userExists;
         (userExists) = AuthenticateUser(_to, _secretPhrase);
         if(userExists == true){
@@ -73,5 +74,48 @@ contract CertificateNFT is ERC721URIStorage, Users{
         status = CertificateMintStatus;
         return(status);
     }
+
+        ///A function that gets an existing account in the user array
+    function UpdateUserNFT_Collection(
+      address _userAddress,
+      string calldata _title,
+      string calldata _IPFS_Url,
+      string[12] memory _secretPhrase
+      ) external view returns (string memory){
+      
+      User memory user;
+        for(uint count = 0; count <= users.length; count++){
+            if (users[count].walletAddress == _userAddress){
+                user = users[count];
+                break;
+            }
+        }
+        bool userExists;
+        bool userIsAnNFT_Issuer;
+        //Authenticates the user
+        (userExists) = AuthenticateUser(_userAddress, _secretPhrase);
+        if(userExists == true){
+            //Authorizes the user
+            (userIsAnNFT_Issuer) = AuthorizeUser(_userAddress);
+            if(userIsAnNFT_Issuer == true)
+            {
+                Collections memory NewCollection;
+                NewCollection.Title = _title;
+                NewCollection.IPFSUrlLink = _IPFS_Url;
+                
+                if(user.CollectionCount == 0){
+
+                    user.NFT_Collections[0] = NewCollection;
+                    user.CollectionCount = user.NFT_Collections.length;
+                } 
+                else if(user.CollectionCount > 0){
+
+                    user.NFT_Collections[user.CollectionCount] = NewCollection;
+                    user.CollectionCount = user.NFT_Collections.length;
+                }
+            }
+        }
+    return "SUCCESS";
+  }
    
 }
