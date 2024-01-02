@@ -17,12 +17,6 @@ contract Users{
         string[12] words;
     }
 
-    ///A structure for storing an account secret phrase
-    struct Collections{
-        string Title;
-        string IPFSUrlLink;
-    }
-
     ///A structure for grouping a user data
     struct User{
         string first_name;
@@ -31,8 +25,6 @@ contract Users{
         string email_address;
         address walletAddress;
         group userGroup;
-        Collections[] NFT_Collections;
-        uint CollectionCount;
         Phrase secret_phrase;
     }
 
