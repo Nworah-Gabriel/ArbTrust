@@ -73,49 +73,5 @@ contract CertificateNFT is ERC721URIStorage, Users{
     function GetMintStatus() external view returns(string memory status){
         status = CertificateMintStatus;
         return(status);
-    }
-
-        ///A function that gets an existing account in the user array
-    function UpdateUserNFT_Collection(
-      address _userAddress,
-      string calldata _title,
-      string calldata _IPFS_Url,
-      string[12] memory _secretPhrase
-      ) external view returns (string memory){
-      
-      User memory user;
-        for(uint count = 0; count <= users.length; count++){
-            if (users[count].walletAddress == _userAddress){
-                user = users[count];
-                break;
-            }
-        }
-        bool userExists;
-        bool userIsAnNFT_Issuer;
-        //Authenticates the user
-        (userExists) = AuthenticateUser(_userAddress, _secretPhrase);
-        if(userExists == true){
-            //Authorizes the user
-            (userIsAnNFT_Issuer) = AuthorizeUser(_userAddress);
-            if(userIsAnNFT_Issuer == true)
-            {
-                Collections memory NewCollection;
-                NewCollection.Title = _title;
-                NewCollection.IPFSUrlLink = _IPFS_Url;
-                
-                if(user.CollectionCount == 0){
-
-                    user.NFT_Collections[0] = NewCollection;
-                    user.CollectionCount = user.NFT_Collections.length;
-                } 
-                else if(user.CollectionCount > 0){
-
-                    user.NFT_Collections[user.CollectionCount] = NewCollection;
-                    user.CollectionCount = user.NFT_Collections.length;
-                }
-            }
-        }
-    return "SUCCESS";
-  }
-   
+    }   
 }
