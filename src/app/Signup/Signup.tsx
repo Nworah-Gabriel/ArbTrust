@@ -25,10 +25,10 @@ if(isConnected == true){
             <h1 className='font-bold text-[2rem] lg:text-[4rem] w-3/4 opacity-70 '>Connect Your Wallet</h1>
             <p className='w-3/4 mt-10 mb-10 text-xs lg:text-xl'>Choose your prefered Blockchain and connect your on-chain Identity</p>
             <p className='font-bold mb-4'>Blockchain</p>
-            <div className='flex items-center'>
+            <button className='flex items-center justify-center w-full p-3 rounded-md bg-purple-800'>
               <Image src={'/metamask.webp'} alt='metamask' width={50} height={100} className='mr-4'/>
-              <ConnectButton label='Connect with Metamask' />
-            </div>
+              <ConnectButton label='Connect with Metamask' className='bg-purple-800' />
+            </button>
           </div>
         </div>
       </section>

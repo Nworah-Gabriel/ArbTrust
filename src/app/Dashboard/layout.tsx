@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='bg-[#f8f8ff] '>
+    <html lang="en" className='bg-[#EDEDED] '>
       <body className={inter.className}>
       <Providers>
       <div className=' flex overflow-hidden'>

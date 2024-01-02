@@ -24,6 +24,29 @@ export const Navigation = [
     },
 ]
 
+export const CreatorNav = [
+    {
+        path: '/Creator',
+        icon: <LayoutDashboard />,
+        name: 'Overview',
+    },
+    {
+        path: '/Creator/CreateNFT',
+        icon: <Store />,
+        name: 'CreatNFT',
+    },
+    {
+        path: '/Dashboard/Collection',
+        icon: <Gem />,
+        name: 'Collections',
+    },
+    {
+        path: '/DSettings',
+        icon: <Settings />,
+        name: 'Settings',
+    },
+]
+
 export const DSettings = [
     {
         path: '/Dashboard/DSettings',

@@ -11,7 +11,7 @@ export default function Rootlayout({
     children: React.ReactNode
 }){
     return(
-        <html lang="en" className='bg-[#f8f8ff] fixed overflow-hidden'>
+        <html lang="en" className='bg-[#EDEDED] fixed overflow-hidden'>
             <body className={inter.className}>
                 <div className=' flex'>
                     <Sidebar />

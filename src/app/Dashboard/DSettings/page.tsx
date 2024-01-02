@@ -11,14 +11,14 @@ const page = () => {
 
 
   return (
-    <div className='bg-[#EDEDED] h-[100vh] overflow-y-scroll'>
+    <div className='bg-[#EDEDED] h-[100vh]'>
         <div className='flex justify-between items-center text-black mx-6 pt-20 lg:pt-5 '>
             <div>
                 <h1 className='text-3xl font-black pb-2'>Settings</h1>
                 <p>Here you can change and edit your informations</p>
             </div>
             <div className='lg:flex hidden pl-12 w-1/3'>
-                <button className='w-full mr-3 outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-500 hover:text-white p-3 rounded-md'>Cancel</button>
+                <button className='w-full mr-3 outline outline-1 outline-purple-800 text-purple-800 hover:bg-purple-800 hover:text-white p-3 rounded-md'>Cancel</button>
                 <button className='w-full bg-purple-800 p-3 text-white rounded-md'>Save Changes</button>
             </div>
         </div>
