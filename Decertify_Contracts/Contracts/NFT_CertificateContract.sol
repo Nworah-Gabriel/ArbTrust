@@ -89,16 +89,16 @@ contract CertificateNFT is ERC721URIStorage, Users{
     function StoreUploadedCertificate(
         address _sender,
         address _reciever,
-        string _IPFS_Url,
+        string memory _IPFS_Url,
         string[12] memory _secretPhrase
     )payable external {
         bool userExists;
         bool userIsAnIssuer;
-        (userExists) = AuthenticateUser(_to, _secretPhrase);
+        (userExists) = AuthenticateUser(_sender, _secretPhrase);
         if(userExists == true){
-            (userIsAnIssuer) = AuthenticateUser(_to);
+            (userIsAnIssuer) = AuthorizeUser(_sender);
             if(userExists == true){
-                UploadedCertificates[_sender][_reciever] = IPFS_Url;
+                UploadedCertificates[_sender][_reciever] = _IPFS_Url;
             }
         }
     }
