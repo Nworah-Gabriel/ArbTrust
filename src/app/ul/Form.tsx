@@ -1,0 +1,124 @@
+'use client'
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Camera } from 'lucide-react';
+import Axios from 'axios';
+import {useRouter} from 'next/navigation'
+
+
+const Form = () => {
+  const router = useRouter();
+const [firstname, setFirstName] = useState('')
+const [lastname, setLastName] = useState('')
+const [username, setUserName] = useState('')
+const [email, setEmail] = useState('')
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const signup = {
+      firstname,
+      lastname,
+      username,
+      email
+    }
+
+    try {
+      const response = await Axios.post("https://decertify.onrender.com/users", signup);
+      console.log(response.data);
+      router.push("/Category")
+
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+  }
+  return (
+    <div className='flex flex-col lg:flex-row w-full justify-center lg:items-center text-black bg-[#EDEDED]'>
+      <Image src={'/Logo2.webp'} alt='Logo' width={100} height={50} className='block lg:hidden mt-5 ml-5' />
+      <section className='overflow-hidden h-[100vh] hidden lg:block w-1/2'>
+        <Image src={'/image.webp'} alt='Image' width={1200} height={100} className='h-[100vh]' />
+      </section>
+
+      <section className='flex flex-col lg:justify-center justify-normal lg:w-1/2 px-5 lg:px-5 h-fit bg-[#EDEDED]'>
+          <div>
+            <Image src={'/Logo2.webp'} alt='Logo' width={100} height={50}  className='hidden lg:block' />
+          </div>
+          <div className='flex justify-center my-3 w-full'>
+            <div className='flex flex-col w-full text-center'>
+              <h1 className='font-bold text-[2rem] lg:text-[2rem] w-full opacity-80 '>Personal Details</h1>
+              <p>Enter the following information for further verification</p>
+            </div>
+          </div>
+
+          <div className='w-full flex flex-col justify-center items-center mb-4 bg-[#EDEDED]'>
+            <div className='border-4 border-purple-900 rounded-full  p-1 w-28 h-28'>
+              <div className='flex justify-center items-center border-2 border-purple-900 rounded-full p-4 w-24 h-24 bg-white '></div>
+              <div className=' flex justify-end mt-[-2.5rem]'>
+                <div className='bg-purple-950 p-1 mt-3 text-white rounded-full'>
+                  <Camera />
+                </div>
+              </div>
+            </div>
+            <p className='font-bold text-[1.5rem]'>Upload a Picture</p>
+          </div>
+
+          <div className='flex w-full lg:ml-0 h-fit bg-[#EDEDED]'>
+          <form className='justify-center w-full' onSubmit={handleSubmit}>
+              <div className='grid lg:flex lg:justify-between'>
+                <div className='w-full mr-2'>
+                  <label htmlFor='first-name' className=''>First Name</label>
+                  <input type='text' 
+                  name='firstname'
+                  id='firstname'
+                  value={firstname}
+                  onChange={(event) => setFirstName(event.target?.value)}
+                  placeholder='Enter First Name' 
+                  className='w-full p-3 rounded-md mt-2'
+                  required
+                  />
+                </div>
+
+                <div className='w-full mt-4 lg:mt-0'>
+                  <label htmlFor='first-name' className=''>Last Name</label>
+                  <input type='text' 
+                  id='lastname'
+                  value={lastname}
+                  onChange={(event) => setLastName(event.target?.value)}
+                  placeholder='Enter Last Name' 
+                  className='w-full p-3 rounded-md mt-2' 
+                  required
+                  />
+                </div>
+              </div>
+              <div className='w-full mt-5'>
+                <label htmlFor='username'>Username</label>
+                <input type='text' 
+                id='username'
+                value={username}
+                onChange={(event) => setUserName(event.target?.value)}
+                placeholder='Enter Username' 
+                className='w-full p-3 rounded-md mt-1'
+                required
+                />
+              </div>
+              <div className='w-full mt-5'>
+                <label htmlFor='email'>Email Address</label>
+                <input type='email' 
+                name='email'
+                id='email'
+                value={email}
+                placeholder='Enter Email Address' 
+                onChange={(event) => setEmail(event.target?.value)}
+                className='w-full p-3 rounded-md mt-1'
+                required
+                />
+              </div>
+              <button type='submit' className='w-full bg-purple-900 mt-6 p-3 rounded-md text-white hover:bg-purple-950'>Next</button>
+            </form>  
+          </div>
+        </section>
+      </div>
+  )
+}
+
+export default Form
