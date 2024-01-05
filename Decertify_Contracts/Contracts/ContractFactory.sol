@@ -10,6 +10,7 @@ import "./UsersContract.sol";
 contract NFT_Factory is Users{
 
     CertificateNFT[] certificateNFT;
+    mapping(address => (mapping(address => string)) public UploadedCertificates;
 
     //A function for creating new CertifiateNFT with new name and symbol 
     function createNewCertificateNFTClone(
