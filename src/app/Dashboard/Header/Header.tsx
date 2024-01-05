@@ -24,7 +24,7 @@ const Header = () => {
   return (
       <div id='hideHead' className={`w-full h-[10vh] pr-10 pt-7 pb-5 flex items-center justify-end bg-[#EDEDED] text-black ${ifIsSettingsPage ? 'hidden' : 'block'} ${ifIsSecurityPage ? 'hidden' : 'block'} ${ifIsNotificationPage ? 'hidden' : 'block'}`}>
         <div className={`flex justify-end mr-5 px-3 rounded-md w-3/6 lg:w-1/4 items-center lg:bg-white lg:shadow-lg ${search ? 'shadow-none' : 'shadow-lg'}`}>
-            <input type='text' className={`h-12 w-full lg:w-5/6 ${search ? 'hidden lg:block' : 'block'} p-2`} />
+            <input type='text' className={`border-none h-12 w-full lg:w-5/6 ${search ? 'hidden lg:block' : 'block'} p-2`} />
             <Search onClick={() => searchAct(!search)} className={`${search ? '' : null}`} />
         </div>
       <div className='flex bg-white rounded-md p-2 px-3 items-center justify-between shadow-lg'>

@@ -1,4 +1,4 @@
-import { LayoutDashboard, Store, Gem, Settings } from 'lucide-react';
+import { LayoutDashboard, Store, PlusSquare, Gem, Settings } from 'lucide-react';
 import Image from 'next/image';
 
 export const Navigation = [
@@ -32,16 +32,16 @@ export const CreatorNav = [
     },
     {
         path: '/Creator/CreateNFT',
-        icon: <Store />,
-        name: 'CreatNFT',
+        icon: <PlusSquare />,
+        name: 'Create NFT',
     },
     {
-        path: '/Dashboard/Collection',
+        path: '/Creator/Collection',
         icon: <Gem />,
         name: 'Collections',
     },
     {
-        path: '/DSettings',
+        path: '/Creator/DSettings',
         icon: <Settings />,
         name: 'Settings',
     },
@@ -60,6 +60,24 @@ export const DSettings = [
     },
     {
         path: '/Dashboard/DSettings/DNotifications',
+        icon: <Gem />,
+        name: 'Notifications',
+    }
+]
+
+export const CSettings = [
+    {
+        path: '/Creator/DSettings',
+        icon: <LayoutDashboard />,
+        name: 'General Information',
+    },
+    {
+        path: '/Creator/DSettings/Security',
+        icon: <Store />,
+        name: 'Security',
+    },
+    {
+        path: '/Creator/DSettings/DNotifications',
         icon: <Gem />,
         name: 'Notifications',
     }

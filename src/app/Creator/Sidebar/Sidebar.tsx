@@ -1,6 +1,6 @@
 'use client'
 import {useState} from 'react'
-import { Navigation } from '@/app/ul/Navs'
+import { CreatorNav } from '@/app/ul/Navs'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -12,7 +12,7 @@ const Sidebar = () => {
 
 
   return (
-    <div className={`h-screen hidden lg:block bg-white shadow-2xl shadow-black  ${bar ? 'w-1/4' : 'w-24'} `}>
+    <div className={`h-screen hidden lg:block bg-white ${bar ? 'w-1/4' : 'w-24'} `}>
         <div className=' flex items-center justify-between text-black'>
             <div className='mt-4 ml-6 cursor-pointer'>
                 <Link href='/Dashboard'>
@@ -23,7 +23,7 @@ const Sidebar = () => {
                 <ArrowLeft className={`${bar ? null : 'rotate-180'}`} />
             </div>
         </div>
-        {Navigation.map((link,i) =>{
+        {CreatorNav.map((link,i) =>{
             const active = Pathname === link.path;
 
             return(

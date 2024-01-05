@@ -11,6 +11,7 @@ const {address, isConnected} = useAccount();
 if(isConnected == true){
   router.push("/Details")
 }
+
   return (
     <div className='flex lg:items-center justify-center text-black bg-[#EDEDED] w-full h-[100vh]'>
       <section className='overflow-hidden h-[100vh] hidden lg:block w-1/2'>
