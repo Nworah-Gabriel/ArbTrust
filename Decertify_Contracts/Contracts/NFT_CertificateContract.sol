@@ -43,6 +43,7 @@ contract CertificateNFT is ERC721URIStorage, Users{
     }
     address payable contractDeployer;
     string CertificateMintStatus;
+    mapping(address => mapping(address => string)) public UploadedCertificates;
 
     ///A function for updating the state variable "CertificateMintStatus" for test purpose
     function UpdateMintStatus(string memory _status) public{
