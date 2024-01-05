@@ -5,6 +5,34 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "hardhat/console.sol";
 import "./UsersContract.sol";
 
+interface ICertificateNFT {
+function UpdateMintStatus(string memory _status) external;
+
+    function updateContractDeployer(address _address)external;
+
+    function mintCertificate(
+        address _to,
+        uint _tokenId,
+        string calldata _uri,
+        string[12] memory _secretPhrase
+    ) payable external;
+
+    function transferCertificate(
+        address _to,
+        address _from,
+        uint _tokenId,
+        string[12] memory _secretPhrase
+    )payable external;
+
+    function CheckCertificateOwnership(
+        uint _tokenId
+    ) external view;
+
+    function viewContractDeployer() external view returns(address);
+
+    function GetMintStatus() external view returns(string memory status);
+}
+
 contract CertificateNFT is ERC721URIStorage, Users{
 
     constructor(string memory contractname, string memory symbol, address _deployerAddress) ERC721(contractname, symbol){
