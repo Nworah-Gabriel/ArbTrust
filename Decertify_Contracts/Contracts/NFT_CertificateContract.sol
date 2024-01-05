@@ -91,7 +91,7 @@ contract CertificateNFT is ERC721URIStorage, Users{
         address _reciever,
         string memory _IPFS_Url,
         string[12] memory _secretPhrase
-    )payable external {
+    )payable external returns (bool) {
         bool userExists;
         bool userIsAnIssuer;
         (userExists) = AuthenticateUser(_sender, _secretPhrase);
@@ -99,8 +99,10 @@ contract CertificateNFT is ERC721URIStorage, Users{
             (userIsAnIssuer) = AuthorizeUser(_sender);
             if(userExists == true){
                 UploadedCertificates[_sender][_reciever] = _IPFS_Url;
+                return (true);
             }
         }
+        return (false);
     }
 
     ///A function to check an NFT owner
