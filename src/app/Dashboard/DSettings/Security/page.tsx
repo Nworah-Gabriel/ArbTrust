@@ -12,7 +12,7 @@ const page = () => {
 
   return (
     <Fragment>
-        <div className='bg-[#EDEDED] h-[100vh]'>
+        <div className='bg-[#EDEDED] h-[100vh] overflow-y-scroll lg:overflow-hidden'>
             <div className='flex justify-between items-center text-black mx-6 pt-20 lg:pt-5'>
                 <div>
                     <h1 className='text-3xl font-black pb-2'>Settings</h1>

@@ -5,9 +5,10 @@ import Modal from '@/components/Modal';
 
 const page = ()=> {
     const [showModal, setShowModal] = useState<boolean>(false);
+    
     return(
         <Fragment>
-            <div className='flex flex-col text-black pt-10 lg:p-0'>
+            <div className='flex flex-col text-black pt-10 lg:p-0 overflow-y-scroll lg:overflow-hidden'>
                 <div className="w-1/3 mr-5 pt-5 hidden lg:flex self-end">
                     <button className="w-full p-2 mr-2 border-2 border-purple-800 hover:bg-purple-800 text-purple-800 hover:text-white rounded-md" onClick = {() => setShowModal(true)}>Preview</button>
                     <button className="w-full p-2 bg-purple-800 text-white rounded-md">Publish NFT</button>
@@ -62,7 +63,7 @@ const page = ()=> {
                                 <button><Image src={'/format_underlined.svg'} alt='...' width={10} height={10} className='h-5 w-5 mr-2' /></button>
                             </section>
                             <section className="flex">
-                                <button><Image src={'/Vector(1).svg'} alt='...' width={10} height={10} className='h-5 w-5 mr-2' /></button>
+                                <button><Image src={'/content_copy.svg'} alt='...' width={10} height={10} className='h-5 w-5 mr-2' /></button>
                                 <button><Image src={'/delete.svg'} alt='...' width={10} height={10} className='h-5 w-5' /></button>
                             </section>
                         </div>

@@ -2,15 +2,17 @@
 import { CSettings } from '@/app/ul/Navs'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import React from 'react'
+import React, { Fragment, useState } from 'react'
+import Delete from '@/components/Delete'
 
 const page = () => {
     const Pathname = usePathname()
     // const [bar, barHandle] = useState<boolean>(true)
-
+    const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
-    <div className='bg-[#EDEDED] h-[100vh]'>
+    <Fragment>
+        <div className='bg-[#EDEDED] h-[100vh] overflow-y-scroll lg:overflow-hidden'>
         <div className='flex justify-between items-center text-black mx-6 pt-20 lg:pt-5'>
             <div>
                 <h1 className='text-3xl font-black pb-2'>Settings</h1>
@@ -41,7 +43,7 @@ const page = () => {
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Jion</button>
                     <button className='bg-purple-300 text-purple-800 m-1 p-2 rounded-md'>Phrase</button>
                 </div>
-                <button className='bg-[#EB1515] text-white p-3 rounded-md mt-5'>Delete Account</button>
+                <button className='bg-[#EB1515] text-white p-3 rounded-md mt-5' onClick = {() => setShowModal(true)}>Delete Account</button>
             </div>
             <div className='flex lg:block m-auto overflow-x-scroll lg:overflow-hidden w-11/12 lg:w-1/4 lg:m-0 border-r-2 border-slate-300 text-sm'>
             {CSettings.map((settings, index) => {
@@ -60,6 +62,8 @@ const page = () => {
             </div>
         </div>
     </div>
+    <Delete isVisible ={showModal} onClose = {()=> setShowModal(false)} />
+    </Fragment>
   )
 }
 
