@@ -31,10 +31,17 @@ const errorHandler = (err) => {
 
 app.post('/users', async (req, res) => {
     try {
-        const users = await Users.create(req.body);
-        res.status(200).json(users);
+        const existingUser = await Users.findOne({ email: req.body.email });
+        
+        if (existingUser) {
+            const errors = { email: 'Email is already registered' };
+            return res.status(400).json({ errors });
+        }
+
+        const newUser = await Users.create(req.body);
+        res.status(200).json(newUser);
     } catch (error) {
-        const errors = errorHandler(error)
+        const errors = errorHandler(error);
         res.status(400).json({ errors });
     }
 });
