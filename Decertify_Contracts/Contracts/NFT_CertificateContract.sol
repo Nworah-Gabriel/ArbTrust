@@ -33,17 +33,33 @@ function UpdateMintStatus(string memory _status) external;
     function GetMintStatus() external view returns(string memory status);
 }
 
-contract CertificateNFT is ERC721URIStorage, Users{
+contract CertificateNFT is ERC721URIStorage{
 
-    constructor(string memory contractname, string memory symbol, address _deployerAddress) ERC721(contractname, symbol){
+    constructor(string memory contractname,
+    string memory symbol,
+    address _deployerAddress,
+    address _UserContractAddress
+    ) ERC721(contractname, symbol){
+    
         console.log("Contract Name:", contractname);
         console.log("Contract symbol:", symbol);
         console.log("Contract deployer:", msg.sender);
         contractDeployer = payable(_deployerAddress);
+        UserContractAddress = payable(_UserContractAddress);
     }
-    address payable contractDeployer;
+    address payable public contractDeployer;
+    address payable public UserContractAddress;
     string CertificateMintStatus;
     mapping(address => mapping(address => string)) public UploadedCertificates;
+    Users userContract = Users(UserContractAddress);
+    event log(string, uint);
+    
+    receive() external payable {
+        emit log("Amount recieved", msg.value);
+    }
+    fallback() external payable {
+        emit log("Amount recieved", msg.value);
+    }
 
     ///A function for updating the state variable "CertificateMintStatus" for test purpose
     function UpdateMintStatus(string memory _status) public{
@@ -61,13 +77,18 @@ contract CertificateNFT is ERC721URIStorage, Users{
         uint _tokenId,
         string calldata _uri,
         string[12] memory _secretPhrase
-    ) payable external {
+    ) external {
         bool userExists;
-        (userExists) = AuthenticateUser(_to, _secretPhrase);
+        (userExists) = _AuthenticateUser(_to, _secretPhrase);
         if(userExists == true){
+            if (keccak256(abi.encodePacked(UploadedCertificates[contractDeployer][_to])) == keccak256(abi.encodePacked(_uri))){
             _mint(_to, _tokenId);
             _setTokenURI(_tokenId, _uri);
             UpdateMintStatus("Success");
+            }
+            else{
+                UpdateMintStatus("Failed");
+            }
         } 
     }
 
@@ -77,8 +98,9 @@ contract CertificateNFT is ERC721URIStorage, Users{
         address _from,
         uint _tokenId,
         string[12] memory _secretPhrase
-    )payable external {
-        bool userExists;
+    )payable external{
+        bool userExists;        
+        (userExists) = _AuthenticateUser(_to, _secretPhrase);
         if(userExists == true){
             approve(_to, _tokenId);
             safeTransferFrom(_from, _to, _tokenId);
@@ -91,14 +113,14 @@ contract CertificateNFT is ERC721URIStorage, Users{
         address _reciever,
         string memory _IPFS_Url,
         string[12] memory _secretPhrase
-    )payable external returns (bool) {
+    ) external payable returns (bool) {
         bool userExists;
         bool userIsAnIssuer;
-        (userExists) = AuthenticateUser(_sender, _secretPhrase);
+        (userExists) = _AuthenticateUser(_sender, _secretPhrase);
         if(userExists == true){
-            (userIsAnIssuer) = AuthorizeUser(_sender);
+            (userIsAnIssuer) = _AuthorizeUser(_sender);
             if(userIsAnIssuer == true){
-                UploadedCertificates[_sender][_reciever] = _IPFS_Url;
+                UploadedCertificates[contractDeployer][_reciever] = _IPFS_Url;
                 return (true);
             }
         }
@@ -121,5 +143,30 @@ contract CertificateNFT is ERC721URIStorage, Users{
     function GetMintStatus() external view returns(string memory status){
         status = CertificateMintStatus;
         return(status);
-    }   
+    }
+
+    function _AuthenticateUser(address _userAddress, string[12] memory _secretPhrase) public payable 
+    returns (bool){
+       bool userExists;
+       bytes memory payload = abi.encodeWithSignature("AuthenticateUser(address,string[12])", _userAddress, _secretPhrase);
+        (bool success , bytes memory data ) = UserContractAddress.call(payload);
+       bool returnedData ;
+        assembly {
+            returnedData := mload(add(data, 32))
+        }
+        require(success, "Function call failed");
+        userExists = returnedData;
+        return (userExists);  
+    }
+
+        function _AuthorizeUser(address _userAddress) public payable returns (bool){
+           bytes memory payload = abi.encodeWithSignature("AuthorizeUser(address)", _userAddress);
+           (bool success , bytes memory data ) = UserContractAddress.call(payload);
+           bool returnedData ;
+           assembly {
+            returnedData := mload(add(data, 32))
+           }
+           require(success, "Function call failed");
+           return (returnedData);
+        }
 }
