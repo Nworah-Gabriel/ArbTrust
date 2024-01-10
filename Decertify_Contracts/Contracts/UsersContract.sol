@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.12 <0.9.0;
 
+
 ///A contract for storing users of an app
 contract Users{
 
@@ -30,6 +31,15 @@ contract Users{
 
   ///declaring an array of User struct
   User[] users;
+
+    event log(string, uint);
+    
+    receive() external payable {
+        emit log("Amount recieved", msg.value);
+    }
+    fallback() external payable{
+        emit log("Amount recieved", msg.value);
+    }
 
     ///A function created to claim a the written contract
     function claimOwnership(address new_owner, address old_owner) external  returns(string memory){
@@ -80,7 +90,7 @@ contract Users{
   }
 
 
-  function getUser(address _userAddress) external view returns (User memory){
+  function getUser(address _userAddress) public view returns (User memory, uint index){
       User memory user;
         for(uint count = 0; count <= users.length; count++){
             if (users[count].walletAddress == _userAddress){
@@ -88,7 +98,7 @@ contract Users{
                 break;
             }
         }
-      return user;
+      return (user, index);
   }
 
 
@@ -97,8 +107,13 @@ contract Users{
   }
 
    ///A function that deletes an existing account in the user array using it's index
-    function deleteUser(uint index) internal returns (string memory){
+    function deleteUser(address _userAddress) internal returns (string memory){
+      
+      uint index;
+      User memory user;
+      (user, index) = getUser(_userAddress);
       require(index < users.length, "This User doesn't exist");
+      
       string memory username = users[index].username;
 
       if (users.length == 1){
