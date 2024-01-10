@@ -8,8 +8,7 @@ import "./UsersContract.sol";
 
 
 //This factory aims to create a new instance of CertificateNFT
-contract NFT_Factory{
-
+contract NFT_Factory  {
     constructor(
     address _deployerAddress,
     address _UserContractAddress
@@ -34,10 +33,10 @@ contract NFT_Factory{
         bool userExists;
         bool userIsAnNFT_Issuer;
         uint count;
-        (userExists) = userContract.AuthenticateUser(_address, _secretPhrase);
+        (userExists) = _AuthenticateUser(_address, _secretPhrase);
 
         if(userExists == true){
-            (userIsAnNFT_Issuer) = userContract.AuthorizeUser(_address);
+            (userIsAnNFT_Issuer) = _AuthorizeUser(_address);
 
             if(userIsAnNFT_Issuer == true){
                 for (count = 0; count <= certificateNFT.length; count += 1){
@@ -76,4 +75,39 @@ contract NFT_Factory{
         }
         return NFTContract;
     }
+
+    function _AuthenticateUser(address _userAddress, string[12] memory _secretPhrase) public payable 
+    returns (bool){
+       bool userExists;
+       bytes memory payload = abi.encodeWithSignature("AuthenticateUser(address,string[12])", _userAddress, _secretPhrase);
+        (bool success , bytes memory data ) = UserContractAddress.call(payload);
+       bool returnedData ;
+        assembly {
+            returnedData := mload(add(data, 32))
+        }
+        require(success, "Function call failed");
+        userExists = returnedData;
+        return (userExists);  
+    }
+
+        function _AuthorizeUser(address _userAddress) public payable returns (bool){
+           bytes memory payload = abi.encodeWithSignature("AuthorizeUser(address)", _userAddress);
+           (bool success , bytes memory data ) = UserContractAddress.call(payload);
+           bool returnedData ;
+           assembly {
+            returnedData := mload(add(data, 32))
+           }
+           require(success, "Function call failed");
+           return (returnedData);
+        }
+        function _deployer(address _contractAddress) public payable returns (bool){
+           bytes memory payload = abi.encodeWithSignature("viewContractDeployer()");
+           (bool success , bytes memory data ) = _contractAddress.call(payload);
+           bool returnedData ;
+           assembly {
+            returnedData := mload(add(data, 32))
+           }
+           require(success, "Function call failed");
+           return (returnedData);
+        }
 }
