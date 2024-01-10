@@ -2,11 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Users = require('./models/users');
+const userCookie = require('cookie-parser')
+const jwt = require('jsonwebtoken')
 
 const app = express();
 app.use(cors());
 
 app.use(express.json());
+
+app.use(userCookie())
 
 mongoose.set("strictQuery", false)
 
@@ -29,17 +33,33 @@ const errorHandler = (err) => {
     return errors;
 }
 
+const maxAge = 2 * 24 * 60 * 60;
+
+AccessToken = (id) => {
+    return jwt.sign({id}, 'decertify user security hashing', {
+        expiresIn: maxAge
+    }) 
+}
+
 app.post('/users', async (req, res) => {
     try {
         const existingUser = await Users.findOne({ email: req.body.email });
+        const existingUserName = await Users.findOne({ username: req.body.username });
         
         if (existingUser) {
             const errors = { email: 'Email is already registered' };
             return res.status(400).json({ errors });
         }
 
+        if (existingUserName) {
+            const errors = { username: 'Username already exist. Please create a unique username' };
+            return res.status(400).json({ errors });
+        }
+
         const newUser = await Users.create(req.body);
-        res.status(200).json(newUser);
+        const Token = AccessToken(newUser._id)
+        res.cookie('JWTAccessToken', Token, {httpOnly: true, maxAge: 1000 * 60 * 60 * 48})
+        res.status(200).json(newUser._id);
     } catch (error) {
         const errors = errorHandler(error);
         res.status(400).json({ errors });
@@ -63,7 +83,6 @@ app.delete('/user/:id', async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 });
-
 
 const port = process.env.PORT || 2024
 
