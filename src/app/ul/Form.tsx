@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Camera } from 'lucide-react';
 import Axios from 'axios';
@@ -7,19 +7,42 @@ import {useRouter} from 'next/navigation'
 
 
 const Form = () => {
-  const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement | null>(null); 
+const router = useRouter();
 const [firstname, setFirstName] = useState('')
 const [lastname, setLastName] = useState('')
 const [username, setUserName] = useState('')
 const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+
+const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+
+
+  const handleCameraClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+    }
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const signup = {
+      profile: selectedImage,
       firstname,
       lastname,
       username,
-      email
+      email,
+      password
     }
 
     try {
@@ -51,16 +74,25 @@ const [email, setEmail] = useState('')
           </div>
 
           <div className='w-full flex flex-col justify-center items-center mb-4 bg-[#EDEDED]'>
-            <div className='border-4 border-purple-900 rounded-full  p-1 w-28 h-28'>
-              <div className='flex justify-center items-center border-2 border-purple-900 rounded-full p-4 w-24 h-24 bg-white '></div>
-              <div className=' flex justify-end mt-[-2.5rem]'>
-                <div className='bg-purple-950 p-1 mt-3 text-white rounded-full'>
-                  <Camera />
-                </div>
-              </div>
-            </div>
-            <p className='font-bold text-[1.5rem]'>Upload a Picture</p>
+        <div className='border-4 border-purple-900 rounded-full  p-1 w-28 h-28 relative'>
+          <div
+            className='flex justify-center items-center border-2 border-purple-900 rounded-full p-4 w-24 h-24 bg-white'
+            style={{ backgroundImage: `url(${selectedImage || ''})`, backgroundSize: 'cover' }}
+          >
+            {selectedImage ? null : <Camera onClick={handleCameraClick} />}
           </div>
+          <input
+            ref={fileInputRef}
+            type='file'
+            style={{ display: 'none' }}
+            onChange={handleFileChange}
+          />
+          <div className='absolute bottom-0 right-0 bg-purple-950 p-1 text-white rounded-full'>
+            <Camera onClick={handleCameraClick} />
+          </div>
+        </div>
+        <p className='font-bold text-[1.5rem]'>Upload a Picture</p>
+      </div>
 
           <div className='flex w-full lg:ml-0 h-fit bg-[#EDEDED]'>
           <form className='justify-center w-full' onSubmit={handleSubmit}>
@@ -111,6 +143,18 @@ const [email, setEmail] = useState('')
                 onChange={(event) => setEmail(event.target?.value)}
                 className='w-full p-3 rounded-md mt-1'
                 required
+                />
+              </div>
+              <div className='w-full mt-5'>
+                <label htmlFor='password'>Password</label>
+                <input type='password' 
+                name='password'
+                id='password'
+                value={password}
+                placeholder='Enter Password' 
+                onChange={(event) => setPassword(event.target?.value)}
+                className='w-full p-3 rounded-md mt-1'
+                // required
                 />
               </div>
               <button type='submit' className='w-full bg-purple-900 mt-6 p-3 rounded-md text-white hover:bg-purple-950'>Next</button>
