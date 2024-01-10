@@ -4,6 +4,7 @@ const cors = require('cors');
 const Users = require('./models/users');
 const userCookie = require('cookie-parser')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -58,15 +59,32 @@ app.post('/users', async (req, res) => {
         res.status(400).json({ errors });
     }
 });
+
+
 app.put('/user/:id', async (req, res) => {
     try {
-        const Id = req.params.id;
-        const users = await Users.findById(Id);
-        res.status(200).json(users);
+        const userId = req.params.id;
+
+        const user = await Users.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        if (req.body.password) {
+            const salt = await bcrypt.genSalt();
+            const hashedPassword = await bcrypt.hash(req.body.password, salt);
+            req.body.password = hashedPassword;
+        }
+
+        const updatedUser = await Users.findByIdAndUpdate(userId, req.body, { new: true });
+
+        res.status(200).json(updatedUser);
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
-});
+})
+
 app.delete('/user/:id', async (req, res) => {
     try {
         const Id = req.params.id;
