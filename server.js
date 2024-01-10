@@ -6,10 +6,9 @@ const userCookie = require('cookie-parser')
 const jwt = require('jsonwebtoken')
 
 const app = express();
+
 app.use(cors());
-
 app.use(express.json());
-
 app.use(userCookie())
 
 mongoose.set("strictQuery", false)
@@ -18,12 +17,6 @@ const errorHandler = (err) => {
     console.log(err.message, err.code)
 
     let errors = {email: '', username: ''};
-
-    if(err.code === 11000){
-        console.log(err.code)
-        errors.email = 'Email is already registered';
-        return errors;
-    }
 
     if (err.message.includes('Users validation failed')){
         Object.values(err.errors).forEach(({properties}) =>{
