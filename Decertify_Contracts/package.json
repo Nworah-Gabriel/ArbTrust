@@ -1,0 +1,11 @@
+{
+  "name": "hardhat-project",
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^5.0.1",
+    "chai": "^4.3.10",
+    "hardhat": "^2.19.2",
+    "solidity-string-utils": "^0.0.8-0"
+  }
+}
