@@ -1,22 +1,55 @@
 'use client'
 import { Search } from 'lucide-react'
 import Image from 'next/image'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { usePathname } from 'next/navigation'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {useRouter} from 'next/navigation'
 import { useAccount } from 'wagmi'
+import Axios from 'axios';
 
 const Header = () => {
     const [search, searchAct] = useState<boolean>(true)
     const router = useRouter();
     const {address, isConnected} = useAccount();
-    const Pathname = usePathname()    
+    const Pathname = usePathname()   
+    const [username, setUsername] = useState<string | null>(null); 
     
     const ifIsSettingsPage = Pathname === '/Dashboard/DSettings' 
     const ifIsSecurityPage = Pathname === '/Dashboard/DSettings/Security'
     const ifIsNotificationPage = Pathname === '/Dashboard/DSettings/DNotifications'
 
+    // useEffect(() => {
+    //   const fetchUsername = async () => {
+    //     try {
+    //       const response = await Axios.get("https://localhost:2024/users");
+    //       if (response.data.length > 0) {
+    //         const firstUser = response.data[0];
+    //         setUsername(firstUser.username);
+    //       }
+    //     } catch (error) {
+    //       console.error('Error fetching username:', error);
+    //     }
+    //   };
+    
+    //   fetchUsername();
+    // }, []);
+    useEffect(() => {
+      const fetchUsername = async () => {
+        try {
+          const response = await Axios.get('/api/getUserinfo');
+          setUsername(response.data.username);
+        } catch (error) {
+          console.error('Error fetching username:', error);
+        }
+      };
+  
+      fetchUsername();
+    }, []);
+  
+    if (!isConnected) {
+      router.push('/');
+    }
     if(isConnected == false){
       router.push("/")
     }
@@ -28,8 +61,8 @@ const Header = () => {
             <Search onClick={() => searchAct(!search)} className={`${search ? '' : null}`} />
         </div>
       <div className='flex bg-white rounded-md p-2 px-3 items-center justify-between shadow-lg'>
-        {/* {User.name} */}
-        <p className='hidden lg:block mr-2'>@Vivian</p> 
+        {username}
+        {/* <p className='hidden lg:block mr-2'>@Vivian</p>  */}
         <Image alt='Profile' src={'/profile.webp'} width={30} height={100} />
         <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />;
       </div>
