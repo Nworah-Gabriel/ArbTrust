@@ -47,12 +47,12 @@ const Header = () => {
       fetchUsername();
     }, []);
   
-    if (!isConnected) {
-      router.push('/');
-    }
-    if(isConnected == false){
-      router.push("/")
-    }
+    // if (!isConnected) {
+    //   router.push('/');
+    // }
+    // if(isConnected == false){
+    //   router.push("/")
+    // }
 
   return (
       <div id='hideHead' className={`w-full h-[10vh] pr-10 pt-7 pb-5 flex items-center justify-end bg-[#EDEDED] text-black ${ifIsSettingsPage ? 'hidden' : 'block'} ${ifIsSecurityPage ? 'hidden' : 'block'} ${ifIsNotificationPage ? 'hidden' : 'block'}`}>

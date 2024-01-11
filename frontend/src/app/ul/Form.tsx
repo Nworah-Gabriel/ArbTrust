@@ -7,7 +7,6 @@ import {useRouter} from 'next/navigation'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const Form = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null); 
 const router = useRouter();
@@ -49,7 +48,7 @@ const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     try {
       const response = await Axios.post("https://decertify.onrender.com/users", signup);
-      console.log(response.data);
+      // console.log(response.data);
   
       if (response.status === 200) {
         toast.success("Account created successfully!");
