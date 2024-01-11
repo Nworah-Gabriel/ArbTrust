@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Camera } from 'lucide-react'
 
-const page = () => {
+const Page = () => {
     const Pathname = usePathname()
     // const [bar, barHandle] = useState<boolean>(true)
 
