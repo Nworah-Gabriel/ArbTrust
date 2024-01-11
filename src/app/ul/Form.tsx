@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { Camera } from 'lucide-react';
 import Axios from 'axios';
 import {useRouter} from 'next/navigation'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Form = () => {
@@ -48,13 +50,20 @@ const [selectedImage, setSelectedImage] = useState<string | null>(null);
     try {
       const response = await Axios.post("https://decertify.onrender.com/users", signup);
       console.log(response.data);
-      router.push("/Category")
-
+  
+      if (response.status === 200) {
+        toast.success("Account created successfully!");
+        
+        router.push("/Category");
+      } else {
+        toast.error(response.data.error);
+      }
     } catch (error) {
-      console.error("Error:", error);
-    }
+      toast.error("Username or email already exist. " + String(error));
 
+    }
   }
+
   return (
     <div className='flex flex-col lg:flex-row w-full justify-center lg:items-center text-black bg-[#EDEDED]'>
       <Image src={'/Logo2.webp'} alt='Logo' width={100} height={50} className='block lg:hidden mt-5 ml-5' />
@@ -154,13 +163,14 @@ const [selectedImage, setSelectedImage] = useState<string | null>(null);
                 placeholder='Enter Password' 
                 onChange={(event) => setPassword(event.target?.value)}
                 className='w-full p-3 rounded-md mt-1'
-                // required
+                required
                 />
               </div>
               <button type='submit' className='w-full bg-purple-900 mt-6 p-3 rounded-md text-white hover:bg-purple-950'>Next</button>
             </form>  
           </div>
         </section>
+        <ToastContainer />
       </div>
   )
 }

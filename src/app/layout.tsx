@@ -6,6 +6,7 @@ import Providers from './ul/Providers'
 import { useAccount, useConnect, useEnsName } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
