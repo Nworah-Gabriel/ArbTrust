@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React, { Fragment, useState } from 'react'
 import Delete from '@/components/Delete'
 
-const page = () => {
+const Page = () => {
     const Pathname = usePathname()
     // const [bar, barHandle] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -67,4 +67,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default Page;
