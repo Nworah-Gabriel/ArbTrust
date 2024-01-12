@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
     const Pathname = usePathname()
     // const [bar, barHandle] = useState<boolean>(true)
 
@@ -73,4 +73,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default Page;
