@@ -28,7 +28,7 @@ if(isConnected == true){
             <p className='font-bold mb-4'>Blockchain</p>
             <button className='flex items-center justify-center w-full p-3 rounded-md bg-purple-800'>
               <Image src={'/metamask.webp'} alt='metamask' width={50} height={100} className='mr-4'/>
-              <ConnectButton label='Connect with Metamask' className='bg-purple-800' />
+              <ConnectButton label='Connect with Metamask'/>
             </button>
           </div>
         </div>
