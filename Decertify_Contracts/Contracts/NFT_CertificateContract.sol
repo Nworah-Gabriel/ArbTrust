@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "hardhat/console.sol";
-import "./UserContract.sol";
+import "./UsersContract.sol";
 
 interface ICertificateNFT {
 function UpdateMintStatus(string memory _status) external;
