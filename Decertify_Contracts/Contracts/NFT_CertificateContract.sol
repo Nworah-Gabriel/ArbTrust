@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "hardhat/console.sol";
-import "./UsersContract.sol";
+import "./UserContract.sol";
 
 interface ICertificateNFT {
 function UpdateMintStatus(string memory _status) external;
@@ -39,13 +39,14 @@ contract CertificateNFT is ERC721URIStorage{
     string memory symbol,
     address _deployerAddress,
     address _UserContractAddress
-    ) ERC721(contractname, symbol){
+    ) payable  ERC721(contractname, symbol){
     
         console.log("Contract Name:", contractname);
         console.log("Contract symbol:", symbol);
         console.log("Contract deployer:", msg.sender);
         contractDeployer = payable(_deployerAddress);
         UserContractAddress = payable(_UserContractAddress);
+        (Symbol) = symbol;
     }
     address payable public contractDeployer;
     address payable public UserContractAddress;
@@ -53,6 +54,7 @@ contract CertificateNFT is ERC721URIStorage{
     mapping(address => mapping(address => string)) public UploadedCertificates;
     Users userContract = Users(UserContractAddress);
     event log(string, uint);
+    string Symbol;
     
     receive() external payable {
         emit log("Amount recieved", msg.value);
@@ -62,7 +64,7 @@ contract CertificateNFT is ERC721URIStorage{
     }
 
     ///A function for updating the state variable "CertificateMintStatus" for test purpose
-    function UpdateMintStatus(string memory _status) public{
+    function UpdateMintStatus(string memory _status) payable  public{
         CertificateMintStatus = _status;
     }
 
@@ -71,13 +73,18 @@ contract CertificateNFT is ERC721URIStorage{
         contractDeployer = payable(_address);
     }
 
+    ///A function that gets the value of a state variable
+    function getSymbol() external view returns (string memory){
+        return Symbol;
+    }
+
     ///A function created for minting certificate as NFT
     function mintCertificate(
         address _to,
         uint _tokenId,
         string calldata _uri,
         string[12] memory _secretPhrase
-    ) external {
+    ) payable public  {
         bool userExists;
         (userExists) = _AuthenticateUser(_to, _secretPhrase);
         if(userExists == true){
@@ -98,8 +105,8 @@ contract CertificateNFT is ERC721URIStorage{
         address _from,
         uint _tokenId,
         string[12] memory _secretPhrase
-    )payable external{
-        bool userExists;        
+    )payable external {
+        bool userExists;
         (userExists) = _AuthenticateUser(_to, _secretPhrase);
         if(userExists == true){
             approve(_to, _tokenId);
@@ -130,7 +137,7 @@ contract CertificateNFT is ERC721URIStorage{
     ///A function to check an NFT owner
     function CheckCertificateOwnership(
         uint _tokenId
-    ) external view{
+    )payable  external{
         ownerOf(_tokenId);
     }
 
