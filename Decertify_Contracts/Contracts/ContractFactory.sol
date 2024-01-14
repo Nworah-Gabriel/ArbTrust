@@ -9,10 +9,11 @@ import "./UsersContract.sol";
 
 //This factory aims to create a new instance of CertificateNFT
 contract NFT_Factory  {
+
     constructor(
     address _deployerAddress,
     address _UserContractAddress
-    ){
+    ) payable {
         console.log("Contract deployer:", msg.sender);
         contractDeployer = payable(_deployerAddress);
         UserContractAddress = payable(_UserContractAddress);
@@ -20,8 +21,17 @@ contract NFT_Factory  {
     address payable public contractDeployer;
     address public UserContractAddress;
     mapping(address => mapping(address => string)) public UploadedCertificates;
+    mapping(address => mapping(string => address)) public certificateNFT;
+    CertificateNFT[] certificateNFTArray;
+    event log(string, uint);
     Users userContract = Users(payable(UserContractAddress));
-    CertificateNFT[] certificateNFT;
+    
+    receive() external payable {
+        emit log("Amount recieved", msg.value);
+    }
+    fallback() external payable {
+        emit log("Amount recieved", msg.value);
+    }
 
     //A function for creating new CertifiateNFT with new name and symbol 
     function createNewCertificateNFTClone(
@@ -32,23 +42,22 @@ contract NFT_Factory  {
     ) public payable returns(bool success, CertificateNFT certificateNFTClone){
         bool userExists;
         bool userIsAnNFT_Issuer;
-        uint count;
         (userExists) = _AuthenticateUser(_address, _secretPhrase);
 
         if(userExists == true){
             (userIsAnNFT_Issuer) = _AuthorizeUser(_address);
 
             if(userIsAnNFT_Issuer == true){
-                for (count = 0; count <= certificateNFT.length; count += 1){
-                    require(keccak256(abi.encodePacked(certificateNFT[count].symbol)) == keccak256(abi.encodePacked(symbol)), "Symbol already in use by another issuer");
-                }
+                require(certificateNFT[_address][symbol] ==  0x0000000000000000000000000000000000000000, "Symbol already existing");
                 certificateNFTClone = new CertificateNFT(
                         contractname,
                         symbol,
                         _address,
                         UserContractAddress               
                             );
-                        certificateNFT.push(certificateNFTClone);
+                        certificateNFT[_address][symbol] = address(certificateNFTClone);
+                        certificateNFTArray.push(certificateNFTClone);
+                        
                         return (success = true, certificateNFTClone);
             }
         } 
@@ -56,24 +65,13 @@ contract NFT_Factory  {
 
     //A function for getting the list of deployed CertificateNFT
     function getNFTCertificate_Count() external view returns (uint256) {
-        return certificateNFT.length;
+        return certificateNFTArray.length;
     }
 
     
     // A function for getting a deployed NFT from the certificateNFT array
-    function getSpecificNFTCertificate(address _contractDeployer, string calldata symbol) external view returns (CertificateNFT) {
-        CertificateNFT NFTContract;
-        for(uint count = 0; count <= certificateNFT.length; count += 1){
-
-            NFTContract = CertificateNFT(certificateNFT[count]);
-            address mainDeployer = NFTContract.viewContractDeployer();
-            
-            if(mainDeployer == payable(_contractDeployer) && keccak256(abi.encodePacked(NFTContract.symbol)) == keccak256(abi.encodePacked(symbol))){
-                NFTContract = certificateNFT[count];
-                return NFTContract;
-            }
-        }
-        return NFTContract;
+    function getSpecificNFTCertificate(address _contractDeployer, string calldata symbol) external view returns (address) {
+        return (certificateNFT[_contractDeployer][symbol]);
     }
 
     function _AuthenticateUser(address _userAddress, string[12] memory _secretPhrase) public payable 
