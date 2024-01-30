@@ -1,6 +1,5 @@
 # ArbTrust
-
-![hbnb](https://user-images.githubusercontent.com/59466195/183268975-648aa48a-76f1-486d-8e55-b335e4279a9e.png)
+![ab trust](https://github.com/Nworah-Gabriel/ArbTrust/assets/99169106/2492fc61-8e73-47af-9107-47e30e55f362)
 
 ## Description
 The ArbTrust is a **Decentralized Identity System project**
