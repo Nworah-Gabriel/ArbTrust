@@ -1,19 +1,9 @@
-# ArbTrust
-![ab trust](https://github.com/Nworah-Gabriel/ArbTrust/assets/99169106/2492fc61-8e73-47af-9107-47e30e55f362)
+Pauls Branch
 
-## Description
-The ArbTrust is a **Decentralized Identity System project**
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-ArbTrust is an Identity Verification Decentralized Application, which enables users to collect an Authentic Verifiable Stamp (AVS) in the form of NFT.
-ArbTrust, built on the Arbitrum network and leveraging on Artificial Intelligence, will serve as a virtual barrier, which keeps out bots and bad actors, allowing only verified and trustworthy individuals into the Blockchain ecosystem without exposing personal or sensitive Identity information.
-        	The concept of this project is for applications utilizing ArbTrust to be able to enable user to obtain their Verifiable Stamp in the form of an NFT after passing the legal scrutiny. However, successfully keeping out bots and malicious activities.
-This project serves as a tool that DApps and organizations could use in order to protect the best interests of their community and projects from bots, unpredictable activities, attacks and other bad actors.
+## Getting Started
 
-## How The project utilizes arbitrum:
-ArbTrust, built on the Arbitrum Blockchain, utilizes the Arbitrum ecosystem in key ways, which includes; efficiency in transaction processing, Gas fee optimization, enhanced security and compatibility with other DApps, setting ArbTrust apart from traditional Identity Verification solutions.
-
-
-## Deployment Procedures:
 First, run the development server:
 
 ```bash
@@ -28,9 +18,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
@@ -48,4 +36,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-￼Enter
